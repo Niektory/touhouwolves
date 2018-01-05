@@ -1,0 +1,3 @@
+<Imageset name="Bottomright_corner_smaller" imagefile="Bottomright_corner_smaller.tga" autoScaled="false" version="2">
+    <Image name="full_image" width="46" height="45" xPos="0" yPos="0" />
+</Imageset>

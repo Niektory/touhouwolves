@@ -1,0 +1,8 @@
+<Imageset name="Textbox_Right_end" imagefile="Textbox_Right_end.tga" autoScaled="false" version="2">
+    <Image name="full_image" width="6" height="28" xPos="0" yPos="0" />
+    <Image name="top_right_corner" width="5" height="5" xPos="1" yPos="0" />
+    <Image name="top_right_corner_2" width="4" height="5" xPos="1" yPos="0" />
+    <Image name="bottom_right_corner" width="5" height="5" xPos="1" yPos="23" />
+    <Image name="bottom_right_corner_2" width="4" height="5" xPos="1" yPos="23" />
+    <Image name="right_edge" width="2" height="18" xPos="4" yPos="5" />
+</Imageset>

@@ -1,0 +1,3 @@
+<Imageset name="Slider02" imagefile="Slider02.tga" autoScaled="false" version="2">
+    <Image name="full_image" width="14" height="39" xPos="0" yPos="0" />
+</Imageset>

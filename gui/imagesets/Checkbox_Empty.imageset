@@ -1,0 +1,3 @@
+<Imageset name="Checkbox_Empty" imagefile="Checkbox_Empty.tga" autoScaled="false" version="2">
+    <Image name="full_image" width="20" height="21" xPos="0" yPos="0" />
+</Imageset>

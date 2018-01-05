@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GUILayout version="4">
+    <Window type="TaharezLook/FrameWindowSmall" name="GameMenu" >
+        <Property name="Text" value="Game Menu" />
+        <Property name="TitlebarFont" value="Default" />
+        <Property name="TitlebarEnabled" value="False" />
+        <Property name="CloseButtonEnabled" value="False" />
+		<Property name="SizingEnabled" value="False" />
+        <Property name="Area" value="{{0.5,-90},{0.5,-137},{0.5,91},{0.5,137}}" />
+        <Property name="Visible" value="False" />
+	    <Window type="TaharezLook/Button" name="ContinueButton" >
+	        <Property name="Text" value="Continue" />
+		    <Property name="Position" value="{{0,14},{0,14}}" />
+		    <Property name="Size" value="{{0,145},{0,33}}" />
+	    </Window>
+	    <Window type="TaharezLook/Button" name="PreferencesButton" >
+	        <Property name="Text" value="Preferences" />
+		    <Property name="Position" value="{{0,14},{0,137}}" />
+		    <Property name="Size" value="{{0,145},{0,33}}" />
+	    </Window>
+        <Window type="TaharezLook/Button" name="HelpButton" >
+            <Property name="Text" value="Help" />
+		    <Property name="Position" value="{{0,14},{0,178}}" />
+		    <Property name="Size" value="{{0,145},{0,33}}" />
+        </Window>
+        <Window type="TaharezLook/Button" name="MainMenuButton" >
+	        <Property name="Text" value="Quit" />
+		    <Property name="Position" value="{{0,14},{0,219}}" />
+		    <Property name="Size" value="{{0,145},{0,33}}" />
+        </Window>
+    </Window>
+</GUILayout>

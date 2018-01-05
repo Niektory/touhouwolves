@@ -1,0 +1,3 @@
+<Imageset name="Menubox_Bottomright" imagefile="Menubox_Bottomright.tga" autoScaled="false" version="2">
+    <Image name="full_image" width="28" height="21" xPos="0" yPos="0" />
+</Imageset>

@@ -1,0 +1,3 @@
+<Imageset name="Textbox_center" imagefile="Textbox_center.tga" autoScaled="false" version="2">
+    <Image name="full_image" width="6" height="28" xPos="0" yPos="0" />
+</Imageset>

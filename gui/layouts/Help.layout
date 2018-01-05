@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GUILayout version="4">
+    <Window type="TaharezLook/FrameWindow" name="Help" >
+        <Property name="Text" value="Online Help" />
+        <Property name="TitlebarFont" value="Default" />
+        <Property name="TitlebarEnabled" value="False" />
+        <Property name="Area" value="{{0.5,-246},{0.5,-150},{0.5,246},{0.5,150}}" />
+        <Property name="MinSize" value="{{0,390},{0,300}}" />
+        <Property name="Visible" value="False" />
+        <Property name="SizingEnabled" value="False" />
+        <Property name="CloseButtonEnabled" value="False" />
+        <Window type="TaharezLook/Button" name="BackButton" >
+            <Property name="Text" value="&#8592; Back" />
+			<Property name="Position" value="{{0,14},{0,14}}" />
+			<Property name="Size" value="{{0,120},{0,33}}" />
+			<Property name="WantsMultiClickEvents" value="False" />
+        </Window>
+        <Window type="TaharezLook/Button" name="ForwardButton" >
+            <Property name="Text" value="Forward &#8594;" />
+			<Property name="Position" value="{{0,139},{0,14}}" />
+			<Property name="Size" value="{{0,120},{0,33}}" />
+			<Property name="WantsMultiClickEvents" value="False" />
+        </Window>
+        <Window type="TaharezLook/Button" name="HomeButton" >
+            <Property name="Text" value="Home" />
+			<Property name="Position" value="{{0,264},{0,14}}" />
+			<Property name="Size" value="{{0,100},{0,33}}" />
+        </Window>
+        <Window type="TaharezLook/Button" name="CloseButton" >
+            <Property name="Text" value="Close" />
+			<Property name="Position" value="{{0,369},{0,14}}" />
+			<Property name="Size" value="{{0,100},{0,33}}" />
+        </Window>
+        <Window type="TaharezLook/StaticText" name="Content" >
+            <Property name="Area" value="{{0,14},{0,61},{1,-14},{1,-14}}" />
+            <Property name="HorzFormatting" value="WordWrapLeftAligned" />
+            <Property name="VertFormatting" value="TopAligned" />
+            <Property name="VertScrollbar" value="True" />
+            <Property name="FrameEnabled" value="True" />
+            <Property name="BackgroundEnabled" value="False" />
+            <Property name="Font" value="Monospace" />
+        </Window>
+    </Window>
+</GUILayout>

@@ -1,0 +1,11 @@
+<Imageset name="Textbox_Left_end" imagefile="Textbox_Left_end.tga" autoScaled="false" version="2">
+    <Image name="full_image" width="6" height="28" xPos="0" yPos="0" />
+    <Image name="top_left_corner" width="5" height="5" xPos="0" yPos="0" />
+    <Image name="bottom_left_corner" width="5" height="5" xPos="0" yPos="23" />
+    <Image name="bottom_left_corner_2" width="5" height="4" xPos="0" yPos="23" />
+    <Image name="top_edge" width="1" height="2" xPos="5" yPos="0" />
+    <Image name="top_edge_2" width="1" height="1" xPos="5" yPos="0" />
+    <Image name="bottom_edge" width="1" height="2" xPos="5" yPos="26" />
+    <Image name="left_edge" width="2" height="18" xPos="0" yPos="5" />
+    <Image name="left_edge_2" width="1" height="18" xPos="0" yPos="5" />
+</Imageset>

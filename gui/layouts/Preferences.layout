@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GUILayout version="4">
+    <Window type="TaharezLook/FrameWindow" name="Preferences" >
+        <Property name="Text" value="Preferences" />
+        <Property name="TitlebarFont" value="Default" />
+        <Property name="TitlebarEnabled" value="False" />
+        <Property name="CloseButtonEnabled" value="False" />
+        <Property name="Area" value="{{0.5,-150},{0.5,-225},{0.5,150},{0.5,225}}" />
+        <Property name="MinSize" value="{{0,300},{0,550}}" />
+        <Property name="Visible" value="False" />
+        <Property name="SizingEnabled" value="False" />
+        <Window type="TaharezLook/TabControl" name="TabControl" >
+            <Property name="TabHeight" value="{0,25}" />
+            <Property name="TabTextPadding" value="{0,5}" />
+            <Property name="Area" value="{{0,14},{0,14},{1,-14},{1,-61}}" />
+        </Window>
+        <Window type="DefaultWindow" name="TabPaneVideo" >
+            <Property name="Text" >Video</Property>
+            <Property name="Area" value="{{0,0},{0,0},{1,0},{1,0}}" />
+		    <Window type="TaharezLook/Label" name="ResolutionLabel" >
+		        <Property name="Text" value="Resolution:" />
+		        <Property name="Position" value="{{0,5},{0,5}}" />
+		        <Property name="Size" value="{{1,-10},{0,20}}" />
+		        <Property name="VertFormatting" value="TopAligned" />
+		        <Property name="HorzFormatting" value="LeftAligned" />
+			</Window>
+            <Window type="TaharezLook/Listbox" name="Resolutions" >
+                <Property name="Area" value="{{0,5},{0,25},{1,-5},{1,-80}}" />
+            </Window>
+            <Window type="TaharezLook/Checkbox" name="Fullscreen" >
+		        <Property name="Text" value="Fullscreen" />
+                <Property name="Area" value="{{0,5},{1,-76},{1,-5},{1,-55}}" />
+            </Window>
+            <Window type="TaharezLook/Checkbox" name="VSync" >
+		        <Property name="Text" value="VSync" />
+                <Property name="Area" value="{{0,5},{1,-51},{1,-5},{1,-30}}" />
+            </Window>
+            <Window type="TaharezLook/Checkbox" name="NativeCursor" >
+		        <Property name="Text" value="Native cursor" />
+                <Property name="Area" value="{{0,5},{1,-26},{1,-5},{1,-5}}" />
+            </Window>
+        </Window>
+        <Window type="DefaultWindow" name="TabPaneAudio" >
+            <Property name="Text" >Audio</Property>
+            <Property name="Area" value="{{0,0},{0,0},{1,0},{1,0}}" />
+            <Window type="TaharezLook/Checkbox" name="Enable" >
+		        <Property name="Text" value="Enable sound" />
+                <Property name="Area" value="{{0,5},{0,5},{1,-5},{0,26}}" />
+            </Window>
+		    <Window type="TaharezLook/Label" name="VolumeLabel" >
+		        <Property name="Text" value="Volume:" />
+		        <Property name="Position" value="{{0,5},{0,30}}" />
+		        <Property name="Size" value="{{0,80},{0,20}}" />
+		        <Property name="VertFormatting" value="TopAligned" />
+		        <Property name="HorzFormatting" value="LeftAligned" />
+			</Window>
+            <Window type="TaharezLook/HorizontalScrollbar" name="VolumeSlider" >
+                <Property name="PageSize" value="0" />
+                <Property name="StepSize" value="1" />
+                <Property name="OverlapSize" value="0" />
+                <Property name="DocumentSize" value="10" />
+                <Property name="ScrollPosition" value="10" />
+                <Property name="Area" value="{{0,5},{0,55},{1,-5},{0,69}}" />
+            </Window>
+        </Window>
+        <Window type="DefaultWindow" name="TabPaneControls" >
+            <Property name="Text" >Hotkeys</Property>
+            <Property name="Area" value="{{0,0},{0,0},{1,0},{1,0}}" />
+            <Window type="TaharezLook/ScrollablePane" name="ScrollablePane" >
+                <Property name="Area" value="{{0,0},{0,5},{1,0},{1,-5}}" />
+	            <Property name="ForceVertScrollbar" value="True" />
+            </Window>
+        </Window>
+        <Window type="DefaultWindow" name="TabPaneGameplay" >
+            <Property name="Text" >Gameplay</Property>
+            <Property name="Area" value="{{0,0},{0,0},{1,0},{1,0}}" />
+		    <Window type="TaharezLook/Label" name="TimeAccelerationLabel" >
+		        <Property name="Text" value="Time Acceleration:" />
+		        <Property name="Position" value="{{0,10},{0,10}}" />
+		        <Property name="Size" value="{{0,140},{0,20}}" />
+		        <Property name="VertFormatting" value="TopAligned" />
+		        <Property name="HorzFormatting" value="RightAligned" />
+			</Window>
+            <Window type="TaharezLook/Checkbox" name="PreloadSpritesCheckbox" >
+		        <Property name="Text" value="Preload sprites" />
+		        <Property name="Position" value="{{0,10},{0,100}}" />
+		        <Property name="Size" value="{{1,-20},{0,21}}" />
+            </Window>
+		    <Window type="TaharezLook/Editbox" name="TimeAccelerationEdit" >
+		        <Property name="Text" value="1" />
+		        <Property name="Position" value="{{0,160},{0,3}}" />
+		        <Property name="Size" value="{{1,-170},{0,28}}" />
+				<Property name="TextParsingEnabled" value="False" />
+				<Property name="MaxTextLength" value="4" />
+				<Property name="ValidationString" value="[[:digit:]]*" />
+			</Window>
+        </Window>
+
+        <Window type="TaharezLook/Button" name="OKButton" >
+            <Property name="Text" value="OK" />
+			<Property name="Position" value="{{0.5,-107},{1,-47}}" />
+			<Property name="Size" value="{{0,100},{0,33}}" />
+        </Window>
+        <Window type="TaharezLook/Button" name="CancelButton" >
+            <Property name="Text" value="Cancel" />
+			<Property name="Position" value="{{0.5,7},{1,-47}}" />
+			<Property name="Size" value="{{0,100},{0,33}}" />
+        </Window>
+    </Window>
+</GUILayout>
+

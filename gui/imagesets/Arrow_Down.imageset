@@ -1,0 +1,3 @@
+<Imageset name="Arrow_Down" imagefile="Arrow_Down.tga" autoScaled="false" version="2">
+    <Image name="full_image" width="12" height="13" xPos="0" yPos="0" />
+</Imageset>

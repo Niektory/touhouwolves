@@ -1,0 +1,6 @@
+<Imageset name="Menu_Left_edge" imagefile="Menu_Left_edge.tga" autoScaled="false" version="2">
+    <Image name="full_image" width="38" height="33" xPos="0" yPos="0" />
+    <Image name="top_edge" width="2" height="6" xPos="36" yPos="0" />
+    <Image name="bottom_edge" width="2" height="6" xPos="36" yPos="27" />
+    <Image name="middle" width="2" height="33" xPos="36" yPos="0" />
+</Imageset>

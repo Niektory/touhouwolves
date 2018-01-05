@@ -10,7 +10,7 @@ class GUIHelp:
 	def __init__(self):
 		self.links = []
 		self.pages = dict()
-		self.pages["home"] = game_name + " " + version + "\n\n\
+		self.pages["home"] = game_name + " " + version + u"\n\n\
 			This game is a derivative work based on the Touhou Project by Team Shanghai Alice.\n\
 			http://www16.big.or.jp/~zun/\n\
 			\n\

@@ -1,0 +1,3 @@
+<Imageset name="Caret" imagefile="Caret.png" autoScaled="false" version="2">
+    <Image name="full_image" width="5" height="18" xPos="0" yPos="0" />
+</Imageset>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GUILayout version="4">
+    <Window type="TaharezLook/StaticText" name="TooltipRoot" >
+        <Property name="Area" value="{{0,0},{0,0},{0,220},{0,90}}" />
+        <Property name="FrameEnabled" value="False" />
+        <Property name="BackgroundEnabled" value="True" />
+		<Property name="BackgroundColours" value="tl:20000000 tr:00000000 bl:20000000 br:00000000"/> 
+        <Property name="Visible" value="False" />
+        <Property name="MousePassThroughEnabled" value="True" />
+        <Property name="AlwaysOnTop" value="True" />
+    </Window>
+</GUILayout>

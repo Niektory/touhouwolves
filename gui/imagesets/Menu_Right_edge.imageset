@@ -1,0 +1,3 @@
+<Imageset name="Menu_Right_edge" imagefile="Menu_Right_edge.tga" autoScaled="false" version="2">
+    <Image name="full_image" width="38" height="33" xPos="0" yPos="0" />
+</Imageset>

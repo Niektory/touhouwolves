@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GUILayout version="4">
+    <Window type="TaharezLook/StaticImage" name="Background" >
+        <Property name="Area" value="{{0,0},{0,0},{1,0},{1,0}}" />
+	    <Property name="Image" value="Mainscreen_Background/full_image" />
+	    <Property name="HorzFormatting" value="CentreAligned" />
+	    <Property name="VertFormatting" value="CentreAligned" />
+	    <Property name="FrameEnabled" value="False" />
+		<Window type="TaharezLook/FrameWindowSmall" name="MainMenu" >
+		    <Property name="Text" value="Main Menu" />
+		    <Property name="TitlebarFont" value="Default" />
+		    <Property name="TitlebarEnabled" value="False" />
+			<Property name="CloseButtonEnabled" value="False" />
+			<Property name="SizingEnabled" value="False" />
+		    <Property name="Area" value="{{0.5,-90},{0.5,-137},{0.5,91},{0.5,137}}" />
+		    <Window type="TaharezLook/Button" name="NewGameButton" >
+		        <Property name="Position" value="{{0,14},{0,14}}" />
+		        <Property name="Size" value="{{0,145},{0,33}}" />
+		        <Property name="Text" value="New Game" />
+		    </Window>
+		    <Window type="TaharezLook/Button" name="PreferencesButton" >
+		        <Property name="Text" value="Preferences" />
+		        <Property name="Position" value="{{0,14},{0,137}}" />
+		        <Property name="Size" value="{{0,145},{0,33}}" />
+		    </Window>
+			<Window type="TaharezLook/Button" name="HelpButton" >
+				<Property name="Text" value="Help" />
+				<Property name="Position" value="{{0,14},{0,178}}" />
+				<Property name="Size" value="{{0,145},{0,33}}" />
+			</Window>
+		    <Window type="TaharezLook/Button" name="QuitGameButton" >
+		        <Property name="Text" value="Quit" />
+		        <Property name="Position" value="{{0,14},{0,219}}" />
+		        <Property name="Size" value="{{0,145},{0,33}}" />
+		    </Window>
+		</Window>
+    </Window>
+</GUILayout>

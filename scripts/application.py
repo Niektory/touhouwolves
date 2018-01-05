@@ -47,7 +47,6 @@ class Application(CEGUIApplicationBase, PychanApplicationBase):
 				self.engine.getAnimationManager())
 
 		self.map = None
-		self.world = None
 		self.view = None
 		self.change_res = False
 
@@ -150,7 +149,7 @@ class Application(CEGUIApplicationBase, PychanApplicationBase):
 	def newGame(self):
 		print("* Starting new game...")
 		self.unloadMap()
-		self.loadMap(self.world.current_map_name)
+		self.loadMap("map1")
 		self.view = View(self)
 		self.gui.showHUD()
 		self.unpause(True)

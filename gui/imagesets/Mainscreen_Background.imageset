@@ -1,0 +1,3 @@
+<Imageset name="Mainscreen_Background" imagefile="Mainscreen_Background.tga" autoScaled="false" version="2">
+    <Image name="full_image" width="1024" height="768" xPos="0" yPos="0" />
+</Imageset>

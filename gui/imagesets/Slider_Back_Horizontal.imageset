@@ -1,0 +1,3 @@
+<Imageset name="Slider_Back_Horizontal" imagefile="Slider_Back_Horizontal.tga" autoScaled="false" version="2">
+    <Image name="full_image" width="6" height="7" xPos="0" yPos="0" />
+</Imageset>
