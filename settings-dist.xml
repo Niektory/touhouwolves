@@ -46,6 +46,13 @@
 		<Setting name="Grid Coordinates" type="unicode">O</Setting>
 		<Setting name="Grid Instances" type="unicode">G</Setting>
 		<Setting name="Grid Blockers" type="unicode">B</Setting>
+		<Setting name="Pan Up" type="unicode">UP</Setting>
+		<Setting name="Pan Down" type="unicode">DOWN</Setting>
+		<Setting name="Pan Left" type="unicode">LEFT</Setting>
+		<Setting name="Pan Right" type="unicode">RIGHT</Setting>
+		<Setting name="Zoom In" type="unicode">KP_PLUS</Setting>
+		<Setting name="Zoom Out" type="unicode">KP_MINUS</Setting>
 		<Setting name="Turbo" type="unicode">LEFT_CONTROL</Setting>
+		<Setting name="Pause" type="unicode">PAUSE</Setting>
 	</Module>
 </Settings>
