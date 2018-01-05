@@ -14,7 +14,6 @@ from guihelp import GUIHelp
 from guimainmenu import GUIMainMenu, GUIGameMenu
 from guitooltip import GUITooltip
 from guihud import GUIHUD
-from guipopupmenu import GUIPopupMenu
 
 
 class GUI:
@@ -44,8 +43,6 @@ class GUI:
 		self.hud = GUIHUD(self.application, self)
 		self.root.addChild(self.hud.window)
 		self.root.addChild(self.hud.window_combat)
-		self.popup_menu = GUIPopupMenu(self)
-		self.root.addChild(self.popup_menu.window)
 		self.global_tooltip = GUITooltip()
 		self.global_tooltip.shadow.setName("GlobalTooltipShadow1")
 		self.global_tooltip.shadow2.setName("GlobalTooltipShadow2")
@@ -124,7 +121,6 @@ class GUI:
 		self.preferences.window.hide()
 		self.game_menu.window.hide()
 		self.help.window.hide()
-		self.popup_menu.window.hide()
 		self.hud.hide()
 
 	def showHUD(self):
