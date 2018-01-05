@@ -187,13 +187,9 @@ class Application(CEGUIApplicationBase, PychanApplicationBase):
 		return self._paused or self.force_paused
 
 	def forcePause(self):
-		gui_pause = (self.gui.dialogue.window.isVisible() or self.gui.game_menu.window.isVisible()
+		gui_pause = (self.gui.game_menu.window.isVisible()
 				or self.gui.preferences.window.isVisible() or self.gui.help.window.isVisible()
-				or self.gui.save_load.window.isVisible() or self.gui.book.window.isVisible()
-				or self.gui.journal.window.isVisible()
-				or self.gui.character_sheet.window.isVisible()
-				or self.gui.inventory.window.isVisible() or self.gui.looting.window.isVisible()
-				or self.gui.weapon_info.window.isVisible() or self.gui.loading.window.isVisible())
+				or self.gui.save_load.window.isVisible())
 		if gui_pause or self._paused:
 			self.pause()
 		else:

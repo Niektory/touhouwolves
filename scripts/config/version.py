@@ -1,3 +1,4 @@
 # -*- coding: utf-8 -*-
 
-version = "Touhou Fangame Jam prototype"
+game_name = "Touhou Wolves"
+version = "prototype v.0"
