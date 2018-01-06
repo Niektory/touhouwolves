@@ -167,7 +167,6 @@ class View:
 		self.moveCamera(camera_move_x, camera_move_y)
 		# animate rotation
 		cur_rot = self.camera.getRotation()
-		print((self.target_rotation - cur_rot) % 360)
 		if self.target_rotation != cur_rot:
 			if (self.target_rotation - cur_rot) % 360 < 180:
 				if (self.target_rotation - cur_rot) % 360 > 5:

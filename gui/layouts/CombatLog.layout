@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GUILayout version="4">
+    <Window type="TaharezLook/FrameWindow" name="CombatLog" >
+        <Property name="Text" value="Combat Log Touhou Edition" />
+        <Property name="TitlebarFont" value="Default" />
+        <Property name="TitlebarEnabled" value="False" />
+        <Property name="CloseButtonEnabled" value="False" />
+        <Property name="Area" value="{{0,0},{1,-205},{0,500},{1,0}}" />
+        <Property name="Visible" value="False" />
+        <Property name="MinSize" value="{{0,250},{0,150}}" />
+        <Window type="TaharezLook/StaticText" name="TextBox" >
+            <Property name="Area" value="{{0,5},{0,5},{1,-5},{1,-5}}" />
+            <Property name="HorzFormatting" value="WordWrapLeftAligned" />
+            <Property name="VertFormatting" value="TopAligned" />
+            <Property name="VertScrollbar" value="True" />
+            <Property name="FrameEnabled" value="True" />
+            <Property name="BackgroundEnabled" value="True" />
+        </Window>
+    </Window>
+</GUILayout>
