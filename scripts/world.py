@@ -43,12 +43,27 @@ class World(object):
 				return True
 		except AttributeError:
 			pass
-		self.application.gui.combat_log.printMessage("Sakuya cannot move in that direction!")
+		self.application.gui.combat_log.printMessage("Sakuya cannot move in that direction.")
 		return False
 
 	def moveEnemies(self):
 		for wolf in self.wolves:
+			if (wolf.instance.getLocation().getLayerDistanceTo(self.player.instance.getLocation())
+					<= 1):
+				self.application.gui.combat_log.printMessage("Wolf bites Sakuya. Ouch!")
+				self.lives -= 1
+				wolf.instance.setFacingLocation(self.player.instance.getLocation())
+				"""
+			elif can see player:
+				move towards player
+			elif random:
+				move in current direction
+				wolf.instance.getFacingLocation()
+			elif random:
+				move in random direction
+
 			self.moveWolf(wolf, fife.ModelCoordinate(1,0,0))
+			"""
 
 	def moveWolf(self, wolf, delta_coords):
 		new_coords = wolf.coords + delta_coords
@@ -59,5 +74,5 @@ class World(object):
 				return True
 		except AttributeError:
 			pass
-		self.application.gui.combat_log.printMessage("Wolf cannot move in that direction!")
+		self.application.gui.combat_log.printMessage("Wolf cannot move in that direction.")
 		return False
