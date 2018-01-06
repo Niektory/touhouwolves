@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <assets>
 	<object blocking="0" id="Sakuya" namespace="main" static="1">
-		<image direction="0" source="Sakuya.png" x_offset="0" y_offset="0" />
+		<image direction="0" source="Sakuya.png" x_offset="4" y_offset="-36" />
 	</object>
 </assets>
