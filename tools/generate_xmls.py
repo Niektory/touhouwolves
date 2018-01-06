@@ -25,7 +25,7 @@ for file in files:
 	tree = ET.ElementTree(element=root)
 	object_element = ET.Element("object")
 	object_element.set("id", splitext(file)[0])
-	object_element.set("namespace", "steamfolktales")
+	object_element.set("namespace", "main")
 	object_element.set("blocking", "0")
 	object_element.set("static", "1")
 	root.append(object_element)
