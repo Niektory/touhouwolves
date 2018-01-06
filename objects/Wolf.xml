@@ -1,0 +1,21 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<assets>
+	<object blocking="1" id="Wolf" namespace="main" static="0">
+		<action id="idle">
+			<animation atlas="Wolf_idle.png" height="86" width="99">
+				<direction delay="1000" dir="315" frames="1" y_offset="-22" />
+				<direction delay="1000" dir="135" frames="1" y_offset="-25" x_offset="18" />
+				<direction delay="1000" dir="225" frames="1" y_offset="-22" />
+				<direction delay="1000" dir="45" frames="1" y_offset="-25" x_offset="-18" />
+			</animation>
+		</action>
+		<action id="walk">
+			<animation atlas="Wolf_walk.png" height="86" width="99">
+				<direction delay="22" dir="315" frames="16" y_offset="-22" />
+				<direction delay="22" dir="135" frames="16" y_offset="-25" x_offset="18" />
+				<direction delay="22" dir="225" frames="16" y_offset="-22" />
+				<direction delay="22" dir="45" frames="16" y_offset="-25" x_offset="-18" />
+			</animation>
+		</action>
+	</object>
+</assets>
