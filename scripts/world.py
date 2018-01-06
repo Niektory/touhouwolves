@@ -19,4 +19,12 @@ class World(object):
 		pass
 
 	def movePlayer(self, delta_coords):
-		self.player.coords += delta_coords
+		new_coords = self.player.coords + delta_coords
+		try:
+			if self.application.maplayer.getCellCache().getCell(new_coords).getCellType() <= 1:
+				self.player.coords = new_coords
+				return True
+		except AttributeError:
+			pass
+		self.application.gui.combat_log.printMessage("Cannot move in that direction!")
+		return False
