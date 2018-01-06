@@ -150,10 +150,10 @@ class Application(CEGUIApplicationBase, PychanApplicationBase):
 		print("* Starting new game...")
 		self.unloadMap()
 		self.loadMap("map1")
-		self.view = View(self)
-		self.gui.showHUD()
 		self.unpause(True)
 		self.world = World(self)
+		self.view = View(self)
+		self.gui.showHUD()
 		print("* Game started!")
 
 	def setTimeMultiplier(self, multiplier):

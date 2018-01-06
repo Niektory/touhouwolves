@@ -47,7 +47,7 @@ class GUIPreferences:
 			"-- Debug --", "Grid Coordinates", "Grid Instances", "Grid Blockers", "Turbo",
 			"-- Camera Control --",
 			"Pan Up", "Pan Down", "Pan Left", "Pan Right", "Zoom In", "Zoom Out",
-			"Rotate Clockwise", "Rotate Counterclockwise",
+			"Rotate Clockwise", "Rotate Counterclockwise", "Attach to PC",
 			"-- Game Control --", "Pause",
 			"-- Player Control --",
 			"Move NE", "Move NW", "Move SW", "Move SE"]

@@ -46,6 +46,7 @@ class View:
 				0, 0,
 				self.application.engine.getRenderBackend().getScreenWidth(),
 				self.application.engine.getRenderBackend().getScreenHeight()))
+		self.attachCameraToPlayer()
 
 		print("  * Enabling renderers...")
 		self.instance_renderer = fife.InstanceRenderer.getInstance(self.camera)
@@ -194,6 +195,9 @@ class View:
 			rotated_coords.x = coords.y
 			rotated_coords.y = -coords.x
 		return rotated_coords
+
+	def attachCameraToPlayer(self):
+		self.camera.attach(self.application.world.player.instance)
 
 	def pump(self):
 		self.animateCamera()
