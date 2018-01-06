@@ -179,5 +179,21 @@ class View:
 				else:
 					self.camera.setRotation(self.target_rotation)
 
+	def rotateCoords(self, coords):
+		rotated_coords = fife.ModelCoordinate()
+		if self.target_rotation == 45:
+			rotated_coords.x = coords.x
+			rotated_coords.y = coords.y
+		elif self.target_rotation == 135:
+			rotated_coords.x = -coords.y
+			rotated_coords.y = coords.x
+		elif self.target_rotation == 225:
+			rotated_coords.x = -coords.x
+			rotated_coords.y = -coords.y
+		elif self.target_rotation == 315:
+			rotated_coords.x = coords.y
+			rotated_coords.y = -coords.x
+		return rotated_coords
+
 	def pump(self):
 		self.animateCamera()

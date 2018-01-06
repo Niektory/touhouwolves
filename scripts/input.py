@@ -144,13 +144,17 @@ class KeyListener(fife.IKeyListener):
 				self.application.view.camera_move_key_right = True
 
 			elif key_val == self.getHotkey("Move NE"):
-				pass
+				self.application.world.movePlayer(self.application.view.rotateCoords(
+						fife.ModelCoordinate(1,0,0)))
 			elif key_val == self.getHotkey("Move NW"):
-				pass
+				self.application.world.movePlayer(self.application.view.rotateCoords(
+						fife.ModelCoordinate(0,-1,0)))
 			elif key_val == self.getHotkey("Move SW"):
-				pass
+				self.application.world.movePlayer(self.application.view.rotateCoords(
+						fife.ModelCoordinate(-1,0,0)))
 			elif key_val == self.getHotkey("Move SE"):
-				pass
+				self.application.world.movePlayer(self.application.view.rotateCoords(
+						fife.ModelCoordinate(0,1,0)))
 
 	@LogExceptionDecorator
 	def keyReleased(self, event):

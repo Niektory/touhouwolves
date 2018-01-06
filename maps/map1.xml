@@ -870,5 +870,5 @@
     <cellcaches>
         <cellcache id="buildings_layer" default_cost="1.000000" default_speed="1.000000" search_narrow="1" />
     </cellcaches>
-    <camera id="main_camera" ref_layer_id="buildings_layer" zoom="1.000000" tilt="60.000000" rotation="45.000000" viewport="0,0,1680,1050" ref_cell_width="128" ref_cell_height="64" />
+    <camera id="main_camera" ref_layer_id="buildings_layer" zoom="1.000000" tilt="-60.000000" rotation="45.000000" viewport="0,0,1680,1050" ref_cell_width="128" ref_cell_height="64" />
 </map>
