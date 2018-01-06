@@ -9,6 +9,8 @@
 !/gui/**/
 !/objects/
 !/objects/**/
+!/tools/
+!/tools/**/
 
 !*.py
 !*.pyw

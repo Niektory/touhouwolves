@@ -125,7 +125,7 @@ class GUI:
 
 	def showHUD(self):
 		self.hideAll()
-		self.hud.show()
+		#self.hud.show()
 
 	def showMainMenu(self):
 		self.hideAll()

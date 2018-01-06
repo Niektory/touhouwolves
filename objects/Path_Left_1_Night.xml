@@ -1,0 +1,6 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<assets>
+	<object blocking="0" id="Path_Left_1_Night" namespace="main" static="1">
+		<image direction="0" source="Path_Left_1_Night.png" x_offset="0" y_offset="0" />
+	</object>
+</assets>

@@ -187,8 +187,7 @@ class Application(CEGUIApplicationBase, PychanApplicationBase):
 
 	def forcePause(self):
 		gui_pause = (self.gui.game_menu.window.isVisible()
-				or self.gui.preferences.window.isVisible() or self.gui.help.window.isVisible()
-				or self.gui.save_load.window.isVisible())
+				or self.gui.preferences.window.isVisible() or self.gui.help.window.isVisible())
 		if gui_pause or self._paused:
 			self.pause()
 		else:
