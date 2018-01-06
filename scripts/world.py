@@ -4,7 +4,7 @@
 from fife import fife
 
 
-class Exploration(object):
+class World(object):
 	def __init__(self, application):
 		self.application = application
 

@@ -48,7 +48,9 @@ class GUIPreferences:
 			"-- Camera Control --",
 			"Pan Up", "Pan Down", "Pan Left", "Pan Right", "Zoom In", "Zoom Out",
 			"Rotate Clockwise", "Rotate Counterclockwise",
-			"-- Game Control --", "Pause"]
+			"-- Game Control --", "Pause",
+			"-- Player Control --",
+			"Move NE", "Move NW", "Move SW", "Move SE"]
 		vert_pos = 10
 		for action in self.hotkey_actions:
 			new_hotkey_label = PyCEGUI.WindowManager.getSingleton().createWindow(

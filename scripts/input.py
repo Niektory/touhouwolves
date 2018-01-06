@@ -143,6 +143,15 @@ class KeyListener(fife.IKeyListener):
 				self.application.camera.detach()
 				self.application.view.camera_move_key_right = True
 
+			elif key_val == self.getHotkey("Move NE"):
+				pass
+			elif key_val == self.getHotkey("Move NW"):
+				pass
+			elif key_val == self.getHotkey("Move SW"):
+				pass
+			elif key_val == self.getHotkey("Move SE"):
+				pass
+
 	@LogExceptionDecorator
 	def keyReleased(self, event):
 		key_val = event.getKey().getValue()

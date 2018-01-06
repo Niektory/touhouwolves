@@ -12,7 +12,7 @@ from input import MouseListener, KeyListener
 from view import View
 from timeline import RealTimeline
 from gui import GUI
-from exploration import Exploration
+from world import World
 from config import importobjects
 from config import music
 
@@ -140,7 +140,7 @@ class Application(CEGUIApplicationBase, PychanApplicationBase):
 		print("Memory used by the image manager:", "{:,}".format(self.imagemanager.getMemoryUsed()))
 		self.map = None
 		self.view = None
-		self.exploration = None
+		self.world = None
 
 	def gameOver(self):
 		self.unloadMap()
@@ -153,7 +153,7 @@ class Application(CEGUIApplicationBase, PychanApplicationBase):
 		self.view = View(self)
 		self.gui.showHUD()
 		self.unpause(True)
-		self.exploration = Exploration(self)
+		self.world = World(self)
 		print("* Game started!")
 
 	def setTimeMultiplier(self, multiplier):
@@ -237,8 +237,8 @@ class Application(CEGUIApplicationBase, PychanApplicationBase):
 		self.gui.pump()
 		if self.view:
 			self.forcePause()
-			if self.exploration and not self.paused:
-				self.exploration.pump(self.real_timeline.last_frame_time)
+			if self.world and not self.paused:
+				self.world.pump(self.real_timeline.last_frame_time)
 		if self.view:
 			self.view.pump()
 		self.gui.pump2()
