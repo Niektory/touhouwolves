@@ -1,0 +1,6 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<assets>
+	<object blocking="0" id="bamboo" namespace="main" static="1">
+		<image direction="0" source="bamboo.png" x_offset="-4" y_offset="-38" />
+	</object>
+</assets>
