@@ -30,6 +30,7 @@ class View:
 		self.camera = self.application.camera
 		self.target_zoom = 1.0
 		self.camera.setZoom(1.0)
+		self.target_rotation = self.camera.getRotation()
 
 		self.camera_move_key_up = False
 		self.camera_move_key_down = False
@@ -105,6 +106,18 @@ class View:
 		else:
 			self.target_zoom = max(self.target_zoom - 1, 1)
 
+	def rotateClockwise(self):
+		if 180 <= (self.target_rotation - self.camera.getRotation()) % 360 <= 270:
+			# don't rotate more than 180 degrees at a time
+			return
+		self.target_rotation = (self.target_rotation - 90) % 360
+
+	def rotateCounterclockwise(self):
+		if 90 <= (self.target_rotation - self.camera.getRotation()) % 360 <= 180:
+			# don't rotate more than 180 degrees at a time
+			return
+		self.target_rotation = (self.target_rotation + 90) % 360
+
 	def moveCamera(self, camera_move_x, camera_move_y):
 		scr_coord = self.camera.getOrigin() + fife.ScreenPoint(camera_move_x, camera_move_y)
 		coord = self.camera.toMapCoordinates(scr_coord, False)
@@ -152,6 +165,20 @@ class View:
 		else:
 			camera_move_x = 0
 		self.moveCamera(camera_move_x, camera_move_y)
+		# animate rotation
+		cur_rot = self.camera.getRotation()
+		print((self.target_rotation - cur_rot) % 360)
+		if self.target_rotation != cur_rot:
+			if (self.target_rotation - cur_rot) % 360 < 180:
+				if (self.target_rotation - cur_rot) % 360 > 5:
+					self.camera.setRotation((cur_rot + 5) % 360)
+				else:
+					self.camera.setRotation(self.target_rotation)
+			else:
+				if (self.target_rotation - cur_rot) % 360 < 355:
+					self.camera.setRotation((cur_rot - 5) % 360)
+				else:
+					self.camera.setRotation(self.target_rotation)
 
 	def pump(self):
 		self.animateCamera()

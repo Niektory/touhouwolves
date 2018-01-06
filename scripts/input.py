@@ -126,6 +126,10 @@ class KeyListener(fife.IKeyListener):
 				self.application.view.zoomIn()
 			elif key_val == self.getHotkey("Zoom Out"):
 				self.application.view.zoomOut()
+			elif key_val == self.getHotkey("Rotate Clockwise"):
+				self.application.view.rotateClockwise()
+			elif key_val == self.getHotkey("Rotate Counterclockwise"):
+				self.application.view.rotateCounterclockwise()
 			elif key_val == self.getHotkey("Pan Up"):
 				self.application.camera.detach()
 				self.application.view.camera_move_key_up = True

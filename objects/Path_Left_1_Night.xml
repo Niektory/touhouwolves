@@ -2,5 +2,8 @@
 <assets>
 	<object blocking="0" id="Path_Left_1_Night" namespace="main" static="1">
 		<image direction="0" source="Path_Left_1_Night.png" x_offset="0" y_offset="0" />
+		<image direction="90" source="Path_Right_1_Night.png" x_offset="0" y_offset="0" />
+		<image direction="180" source="Path_Left_1_Night.png" x_offset="0" y_offset="0" />
+		<image direction="270" source="Path_Right_1_Night.png" x_offset="0" y_offset="0" />
 	</object>
 </assets>

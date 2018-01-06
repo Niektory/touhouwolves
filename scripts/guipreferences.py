@@ -47,6 +47,7 @@ class GUIPreferences:
 			"-- Debug --", "Grid Coordinates", "Grid Instances", "Grid Blockers", "Turbo",
 			"-- Camera Control --",
 			"Pan Up", "Pan Down", "Pan Left", "Pan Right", "Zoom In", "Zoom Out",
+			"Rotate Clockwise", "Rotate Counterclockwise",
 			"-- Game Control --", "Pause"]
 		vert_pos = 10
 		for action in self.hotkey_actions:
