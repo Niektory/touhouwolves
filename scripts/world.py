@@ -11,11 +11,12 @@ from player import Player
 class World(object):
 	def __init__(self, application):
 		self.application = application
+		self.wolves = []
 		for instance in self.application.maplayer.getInstances():
 			if instance.getObject().getId() == "Sakuya":
 				self.player = Player(instance)
 			if instance.getObject().getId() == "Wolf":
-				self.wolf = Player(instance)
+				self.wolves.append(Player(instance))
 		self.lives = 8
 
 	@property
@@ -26,30 +27,35 @@ class World(object):
 	def lives(self, new_lives):
 		self._lives = new_lives
 		self.application.gui.hud.updateLives(self.lives)
+		if self.lives <= 0:
+			self.application.gui.combat_log.printMessage("GAME OVER")
 
 	def pump(self, frame_time):
 		pass
 
 	def movePlayer(self, delta_coords):
-		self.lives -= 1
 		new_coords = self.player.coords + delta_coords
 		try:
 			if self.application.maplayer.getCellCache().getCell(new_coords).getCellType() <= 1:
 				#self.player.coords = new_coords # instant movement
 				self.player.move(new_coords)
-				self.moveWolf(delta_coords)
+				self.moveEnemies()
 				return True
 		except AttributeError:
 			pass
-		self.application.gui.combat_log.printMessage("Cannot move in that direction!")
+		self.application.gui.combat_log.printMessage("Sakuya cannot move in that direction!")
 		return False
 
-	def moveWolf(self, delta_coords):
-		new_coords = self.wolf.coords + delta_coords
+	def moveEnemies(self):
+		for wolf in self.wolves:
+			self.moveWolf(wolf, fife.ModelCoordinate(1,0,0))
+
+	def moveWolf(self, wolf, delta_coords):
+		new_coords = wolf.coords + delta_coords
 		try:
 			if self.application.maplayer.getCellCache().getCell(new_coords).getCellType() <= 1:
-				#self.player.coords = new_coords # instant movement
-				self.wolf.move(new_coords)
+				#self.wolf.coords = new_coords # instant movement
+				wolf.move(new_coords)
 				return True
 		except AttributeError:
 			pass
