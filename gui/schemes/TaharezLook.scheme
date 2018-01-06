@@ -37,6 +37,9 @@
 	<Imageset filename="Checkbox_Empty.imageset" />
 	<Imageset filename="Center_ornament_big_top.imageset" />
 	<Imageset filename="Center_ornament_big_bottom.imageset" />
+	<Imageset filename="hp_1.imageset" />
+	<Imageset filename="hp_2.imageset" />
+	<Imageset filename="hp_3.imageset" />
 	<Font filename="Default.font" />
 	<Font filename="Monospace.font" />
 	<LookNFeel filename="TaharezLook.looknfeel" />

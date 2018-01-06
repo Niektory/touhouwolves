@@ -1,6 +1,38 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <GUILayout version="4">
-    <Window type="TaharezLook/StaticImage" name="HUD" >
-        <Property name="Visible" value="False" />
-    </Window>
+	<Window type="DefaultWindow" name="HUD" >
+		<Property name="Visible" value="False" />
+		<Property name="MousePassThroughEnabled" value="True" />
+		<Window type="DefaultWindow" name="Lives" >
+			<Property name="Area" value="{{1,-232},{0,0},{1,0},{0,72}}" />
+			<Window type="TaharezLook/StaticImage" name="Heart1" >
+				<Property name="FrameEnabled" value="False" />
+				<Property name="BackgroundEnabled" value="False" />
+				<Property name="Position" value="{{0,4},{0,4}" />
+				<Property name="Size" value="{{0,53},{0,64}}" />
+				<Property name="Image" value="hp_1/full_image" />
+			</Window>
+			<Window type="TaharezLook/StaticImage" name="Heart2" >
+				<Property name="FrameEnabled" value="False" />
+				<Property name="BackgroundEnabled" value="False" />
+				<Property name="Position" value="{{0,61},{0,4}" />
+				<Property name="Size" value="{{0,53},{0,64}}" />
+				<Property name="Image" value="hp_1/full_image" />
+			</Window>
+			<Window type="TaharezLook/StaticImage" name="Heart3" >
+				<Property name="FrameEnabled" value="False" />
+				<Property name="BackgroundEnabled" value="False" />
+				<Property name="Position" value="{{0,118},{0,4}" />
+				<Property name="Size" value="{{0,53},{0,64}}" />
+				<Property name="Image" value="hp_2/full_image" />
+			</Window>
+			<Window type="TaharezLook/StaticImage" name="Heart4" >
+				<Property name="FrameEnabled" value="False" />
+				<Property name="BackgroundEnabled" value="False" />
+				<Property name="Position" value="{{0,175},{0,4}" />
+				<Property name="Size" value="{{0,53},{0,64}}" />
+				<Property name="Image" value="hp_3/full_image" />
+			</Window>
+		</Window>
+	</Window>
 </GUILayout>

@@ -1,6 +1,8 @@
 # -*- coding: utf-8 -*-
 # Copyright 2018 Tomasz "Niektóry" Turowski
 
+from __future__ import print_function
+
 import PyCEGUI
 
 from error import LogExceptionDecorator
@@ -13,10 +15,24 @@ class GUIHUD:
 		self.window = PyCEGUI.WindowManager.getSingleton().loadLayoutFromFile("HUD.layout")
 		self.window_combat = PyCEGUI.WindowManager.getSingleton().loadLayoutFromFile(
 				"HUDCombat.layout")
+		self.lives = self.window.getChild("Lives")
+		self.hearts = []
+		for i in xrange(1,5):
+			self.hearts.append(self.lives.getChild("Heart"+str(i)))
 
 		self.visible = False
 
 		self.updateTooltips()
+
+	def updateLives(self, lives_left):
+		for heart in self.hearts:
+			if lives_left >= 2:
+				heart.setProperty("Image", "hp_1/full_image")
+			elif lives_left == 1:
+				heart.setProperty("Image", "hp_2/full_image")
+			else:
+				heart.setProperty("Image", "hp_3/full_image")
+			lives_left -= 2
 
 	def updateTooltips(self):
 		pass

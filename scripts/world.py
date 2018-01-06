@@ -16,11 +16,14 @@ class World(object):
 				self.player = Player(instance)
 			if instance.getObject().getId() == "Wolf":
 				self.wolf = Player(instance)
+		self.lives = 10
 
 	def pump(self, frame_time):
 		pass
 
 	def movePlayer(self, delta_coords):
+		self.lives -= 1
+		self.application.gui.hud.updateLives(self.lives)
 		new_coords = self.player.coords + delta_coords
 		try:
 			if self.application.maplayer.getCellCache().getCell(new_coords).getCellType() <= 1:

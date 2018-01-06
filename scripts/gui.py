@@ -129,7 +129,7 @@ class GUI:
 
 	def showHUD(self):
 		self.hideAll()
-		#self.hud.show()
+		self.hud.show()
 		self.combat_log.window.show()
 
 	def showMainMenu(self):
