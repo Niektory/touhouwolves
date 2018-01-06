@@ -22,7 +22,8 @@ class World(object):
 		new_coords = self.player.coords + delta_coords
 		try:
 			if self.application.maplayer.getCellCache().getCell(new_coords).getCellType() <= 1:
-				self.player.coords = new_coords
+				#self.player.coords = new_coords # instant movement
+				self.player.move(new_coords)
 				return True
 		except AttributeError:
 			pass

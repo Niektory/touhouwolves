@@ -19,3 +19,8 @@ class Player(object):
 		location = self.instance.getLocation()
 		location.setLayerCoordinates(new_coords)
 		self.instance.setLocation(location)
+
+	def move(self, dest_coords):
+		location = self.instance.getLocation()
+		location.setLayerCoordinates(dest_coords)
+		self.instance.move("walk", location, 3)
