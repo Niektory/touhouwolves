@@ -51,9 +51,10 @@ class World(object):
 		new_coords = self.player.coords + delta_coords
 		cell = self.application.maplayer.getCellCache().getCell(new_coords)
 		if cell and cell.getCellType() <= 1:
-			#self.player.coords = new_coords # instant movement
-			self.player.move(new_coords)
+			self.player.moveInstant(new_coords)
+			#self.player.move(new_coords)
 			self.moveEnemies()
+			self.player.replayMove()
 			return True
 		self.application.gui.combat_log.printMessage("Sakuya cannot move in that direction.")
 		return False
@@ -97,13 +98,19 @@ class World(object):
 				self.application.gui.combat_log.printMessage("Wolf bites Sakuya. Ouch!")
 				self.lives -= 1
 				wolf.instance.setFacingLocation(self.player.instance.getLocation())
+				wolf.instance.say("attack")
 			elif self.canSeePlayer(wolf):
 				self.application.gui.combat_log.printMessage("Wolf moves towards Sakuya.")
 				self.moveWolfTowardsPlayer(wolf)
+				wolf.instance.say("pursue")
 			elif randrange(0,2) == 0:
 				self.moveWolfTo(wolf, wolf.instance.getFacingLocation())
+				wolf.instance.say("move straight")
 			elif randrange(0,2) == 0:
 				self.moveWolf(wolf, randomDirection())
+				wolf.instance.say("move random")
+			else:
+				wolf.instance.say("idle")
 
 	def canSeePlayer(self, enemy):
 		if (enemy.instance.getLocation().getLayerDistanceTo(self.player.instance.getLocation())

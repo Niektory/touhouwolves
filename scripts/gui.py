@@ -131,6 +131,7 @@ class GUI:
 		self.hideAll()
 		self.hud.show()
 		self.combat_log.window.show()
+		self.combat_log.clear()
 
 	def showMainMenu(self):
 		self.hideAll()
