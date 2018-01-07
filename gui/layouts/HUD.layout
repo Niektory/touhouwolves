@@ -69,7 +69,7 @@
 			<Property name="Area" value="{{0,0},{0,0},{1,0},{1,0}}" />
 			<Property name="FrameEnabled" value="False" />
 			<Property name="BackgroundEnabled" value="False" />
-			<Property name="Image" value="stop_time_overlay/full_image" />
+			<Property name="Image" value="clock0001/full_image" />
 			<Property name="MousePassThroughEnabled" value="True" />
 		</Window>
 	</Window>

@@ -43,7 +43,7 @@
 	<Imageset filename="mp_1.imageset" />
 	<Imageset filename="mp_2.imageset" />
 	<Imageset filename="mp_3.imageset" />
-	<Imageset filename="stop_time_overlay.imageset" />
+	<Imageset filename="clock0001.imageset" />
 	<Font filename="Default.font" />
 	<Font filename="Monospace.font" />
 	<LookNFeel filename="TaharezLook.looknfeel" />
