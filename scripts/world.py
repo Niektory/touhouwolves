@@ -53,7 +53,8 @@ class World(object):
 		self.application.gui.hud.updateLives(self._lives)
 		self.rest_counter = 0
 		if self._lives <= 0:
-			self.application.gui.combat_log.printMessage("GAME OVER")
+			#self.application.gui.combat_log.printMessage("GAME OVER")
+			self.application.gui.info_dump.showText("GAME OVER", self.application.gameOver)
 
 	@property
 	def bombs(self):
@@ -149,10 +150,24 @@ class World(object):
 				if wolf.health <= 0:
 					self.wolves.remove(wolf)
 					facing_location.getLayer().deleteInstance(wolf.instance)
-					self.application.gui.combat_log.printMessage("Wolf was killed.")
-				if self.kagerou.dead and self.momiji.dead:
-					self.application.gui.combat_log.printMessage(
-							"VICTORY in " + str(self.moves_counter) + " moves!")
+					if wolf.instance.getObject().getId() == "Kagerou":
+						if self.momiji.dead:
+							self.application.gui.info_dump.showText(
+									"You got Kagerou, too!", self.victory)
+							return
+						else:
+							self.application.gui.info_dump.showText(
+									"You got Kagerou!")
+					elif wolf.instance.getObject().getId() == "Momiji":
+						if self.kagerou.dead:
+							self.application.gui.info_dump.showText(
+									"You got Momiji, too!", self.victory)
+							return
+						else:
+							self.application.gui.info_dump.showText(
+									"You got Momiji!")
+					else:
+						self.application.gui.combat_log.printMessage("Wolf was killed.")
 				self.moveEnemies()
 				self.rest_counter = 0
 				return
@@ -234,3 +249,8 @@ class World(object):
 				return False
 		# in other cases can see
 		return True
+
+	def victory(self):
+		self.application.gui.info_dump.showText(
+				"VICTORY in " + str(self.moves_counter) + " moves!",
+				self.application.gameOver)
