@@ -23,6 +23,7 @@ class GUIHUD:
 		self.stars = []
 		for i in xrange(1,4):
 			self.stars.append(self.bombs.getChild("Star"+str(i)))
+		self.moves = self.window.getChild("Moves")
 
 		self.visible = False
 
@@ -47,6 +48,9 @@ class GUIHUD:
 			else:
 				star.setProperty("Image", "hp_3/full_image")
 			bombs_left -= 2
+
+	def updateMoves(self, moves):
+		self.moves.setText("MOVES\n" + str(moves))
 
 	def updateTooltips(self):
 		pass

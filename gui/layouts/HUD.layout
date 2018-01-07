@@ -58,5 +58,12 @@
 				<Property name="Image" value="hp_3/full_image" />
 			</Window>
 		</Window>
+		<Window type="TaharezLook/StaticText" name="Moves" >
+			<Property name="Area" value="{{1,-232},{0,80},{1,-175},{0,152}}" />
+			<Property name="FrameEnabled" value="True" />
+			<Property name="BackgroundEnabled" value="True" />
+			<Property name="Text" value="MOVES" />
+			<Property name="HorzFormatting" value="CentreAligned" />
+		</Window>
 	</Window>
 </GUILayout>

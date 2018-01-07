@@ -72,7 +72,8 @@ class World(object):
 	@moves_counter.setter
 	def moves_counter(self, new_moves):
 		self._moves_counter = new_moves
-		self.application.gui.combat_log.printMessage("Moves: " + str(self._moves_counter))
+		self.application.gui.hud.updateMoves(self._moves_counter)
+		#self.application.gui.combat_log.printMessage("Moves: " + str(self._moves_counter))
 
 	@property
 	def animating(self):
