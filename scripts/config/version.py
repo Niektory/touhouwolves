@@ -1,4 +1,4 @@
 # -*- coding: utf-8 -*-
 
-game_name = "Touhou Wolves"
-version = "prototype v.0"
+game_name = "Awooo~"
+version = "jam-1.0"

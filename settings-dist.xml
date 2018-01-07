@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <Settings>
 	<Module name="FIFE">
-		<Setting name="WindowTitle" type="str"> Touhou Wolves </Setting>
+		<Setting name="WindowTitle" type="str"> Awooo~ </Setting>
 		<Setting name="WindowIcon" type="str"> </Setting>
 		<Setting name="ScreenResolution" type="str">1024x768</Setting>
 		<Setting name="FullScreen" type="bool"> False </Setting>
@@ -42,11 +42,12 @@
 	<Module name="CEGUI">
 		<Setting name="schemes" type="str"> gui/schemes/ </Setting>
 	</Module>
-    <Setting name="Rotate Clockwise" type="unicode">KP_MULTIPLY</Setting>
-    <Setting name="Rotate Counterclockwise" type="unicode">KP_DIVIDE</Setting>
-    <Setting name="Move NE" type="unicode">UP</Setting>
-    <Setting name="Move NW" type="unicode">LEFT</Setting>
-    <Setting name="Move SW" type="unicode">DOWN</Setting>
-    <Setting name="Move SE" type="unicode">RIGHT</Setting>
+	<Module name="hotkeys">
+		<Setting name="Rotate Clockwise" type="unicode">KP_MULTIPLY</Setting>
+		<Setting name="Rotate Counterclockwise" type="unicode">KP_DIVIDE</Setting>
+		<Setting name="Move NE" type="unicode">UP</Setting>
+		<Setting name="Move NW" type="unicode">LEFT</Setting>
+		<Setting name="Move SW" type="unicode">DOWN</Setting>
+		<Setting name="Move SE" type="unicode">RIGHT</Setting>
 	</Module>
 </Settings>

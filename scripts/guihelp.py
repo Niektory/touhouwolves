@@ -10,14 +10,25 @@ class GUIHelp:
 	def __init__(self):
 		self.links = []
 		self.pages = dict()
-		self.pages["home"] = game_name + " " + version + u"\n\n\
-			This game is a derivative work based on the Touhou Project by Team Shanghai Alice.\n\
-			http://www16.big.or.jp/~zun/\n\
-			\n\
-			CREDITS\n\
-			Code: Niektóry\n\
-			Art: Nanako Shu\n\
-			Music: pigdevil2010"
+		self.pages["home"] = game_name + " " + version + u"""\n\n\
+			No sound - sorry!
+			Default controls:
+			- Arrow keys - move and attack in four directions
+			- Space - rest - resting a few times in a row will heal you
+			- Enter - stop time - to get out of a sticky situation
+			
+			This game is a derivative work (loosely) based on the Touhou Project by ZUN/Team Shanghai Alice.
+			http://www16.big.or.jp/~zun/
+			
+			CREDITS
+			Code: Niektóry
+			Art: Nanako Shu
+			
+			An entry for the Touhou Fan Game Jam
+			https://itch.io/jam/touhou-jam
+			
+			Kudos to the FIFE developers for the engine
+			http://www.fifengine.net/"""
 		self.history_back = []
 		self.history_forward = []
 		self.current_address = "home"

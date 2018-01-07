@@ -68,9 +68,9 @@ class GUI:
 		self.root.addChild(self.tooltip.window)
 
 		# register global sounds
-		PyCEGUI.GlobalEventSet.getSingleton().subscribeEvent(
-					"Window/" + PyCEGUI.PushButton.EventMouseButtonDown,
-					self.buttonSound)
+		#PyCEGUI.GlobalEventSet.getSingleton().subscribeEvent(
+		#			"Window/" + PyCEGUI.PushButton.EventMouseButtonDown,
+		#			self.buttonSound)
 
 		# register tooltip movement
 		PyCEGUI.GlobalEventSet.getSingleton().subscribeEvent(
