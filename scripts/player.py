@@ -9,7 +9,7 @@ from fife import fife
 class Player(object):
 	def __init__(self, instance):
 		self.instance = instance
-		self.old_location = instance.getLocation()
+		self.old_location = None
 
 	@property
 	def coords(self):
@@ -31,11 +31,21 @@ class Player(object):
 		self.instance.setLocation(location)
 		location.getLayer().getCellCache().getCell(self.old_location.getLayerCoordinates())\
 				.removeInstance(self.instance) # the deadline is making me write this shit
+		location.getLayer().getCellCache().getCell(location.getLayerCoordinates())\
+				.addInstance(self.instance) # forgive me
 
 	def replayMove(self):
+		if not self.old_location:
+			return
 		dest = self.instance.getLocation()
+		# hopefully we can undo the mess...
+		dest.getLayer().getCellCache().getCell(dest.getLayerCoordinates())\
+				.removeInstance(self.instance)
+		#dest.getLayer().getCellCache().getCell(self.old_location.getLayerCoordinates())\
+		#		.addInstance(self.instance)
 		self.instance.setLocation(self.old_location)
 		self.move(dest)
+		self.old_location = None
 
 	def move(self, dest):
 		if isinstance(dest, fife.Location):

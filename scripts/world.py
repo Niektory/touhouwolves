@@ -64,7 +64,7 @@ class World(object):
 		cell = self.application.maplayer.getCellCache().getCell(new_coords)
 		if cell and cell.getCellType() <= 1:
 			#self.wolf.coords = new_coords # instant movement
-			wolf.move(new_coords)
+			wolf.moveInstant(new_coords)
 			return True
 		#self.application.gui.combat_log.printMessage("Wolf cannot move in that direction.")
 		return False
@@ -72,7 +72,7 @@ class World(object):
 	def moveWolfTo(self, wolf, location):
 		cell = self.application.maplayer.getCellCache().getCell(location.getLayerCoordinates())
 		if cell and cell.getCellType() <= 1:
-			wolf.move(location)
+			wolf.moveInstant(location)
 			return True
 		#self.application.gui.combat_log.printMessage("Wolf cannot move in that direction.")
 		return False
@@ -86,10 +86,7 @@ class World(object):
 			return
 		elif route.getRouteStatus() == 3:
 			# route solved, moving one square
-			if len(route.getPath()) > 2:
-				route.cutPath(2)
-			route.setRotation(wolf.instance.getRotation())
-			wolf.instance.follow("walk", route, 3.0)
+			wolf.moveInstant(route.getPath()[1])
 
 	def moveEnemies(self):
 		for wolf in self.wolves:
@@ -111,6 +108,8 @@ class World(object):
 				wolf.instance.say("move random")
 			else:
 				wolf.instance.say("idle")
+		for wolf in self.wolves:
+			wolf.replayMove()
 
 	def canSeePlayer(self, enemy):
 		if (enemy.instance.getLocation().getLayerDistanceTo(self.player.instance.getLocation())
