@@ -46,8 +46,8 @@ class Player(object):
 		# hopefully we can undo the mess...
 		dest.getLayer().getCellCache().getCell(dest.getLayerCoordinates())\
 				.removeInstance(self.instance)
-		#dest.getLayer().getCellCache().getCell(self.old_location.getLayerCoordinates())\
-		#		.addInstance(self.instance)
+		dest.getLayer().getCellCache().getCell(self.old_location.getLayerCoordinates())\
+				.addInstance(self.instance)
 		self.instance.setLocation(self.old_location)
 		self.move(dest)
 		self.old_location = None

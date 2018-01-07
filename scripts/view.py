@@ -74,7 +74,15 @@ class View:
 		self.cell_renderer.addActiveLayer(self.application.maplayer)
 		self.cell_renderer.setEnabled(True)
 		self.cell_renderer.setEnabledBlocking(False)
-		self.cell_renderer.setEnabledFogOfWar(False)
+		self.cell_renderer.setEnabledFogOfWar(True)
+
+		self.concimg = self.application.engine.getImageManager().load(
+						"objects/black_cell.png")
+		self.maskimg = self.application.engine.getImageManager().load(
+						"objects/mask_cell.png")
+		self.cell_renderer.setConcealImage(self.concimg)
+		self.cell_renderer.setMaskImage(self.maskimg)
+		self.cell_renderer.setFogOfWarLayer(self.application.maplayer)
 
 		self.light_renderer = fife.LightRenderer.getInstance(self.camera)
 		self.light_renderer.setEnabled(True)
@@ -94,6 +102,10 @@ class View:
 
 	def toggleCells(self):
 		self.cell_renderer.setEnabledBlocking(not self.cell_renderer.isEnabledBlocking())
+
+	def toggleFogOfWar(self):
+		self.cell_renderer.setEnabledFogOfWar(not self.cell_renderer.isEnabledFogOfWar())
+		self.camera.refresh()
 
 	def zoomIn(self):
 		if self.target_zoom < 1:
@@ -198,6 +210,8 @@ class View:
 
 	def attachCameraToPlayer(self):
 		self.camera.attach(self.application.world.player.instance)
+		self.application.world.player.instance.setVisitor(True)
+		self.application.world.player.instance.setVisitorRadius(6)
 
 	def pump(self):
 		self.animateCamera()

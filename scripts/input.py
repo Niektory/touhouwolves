@@ -121,6 +121,8 @@ class KeyListener(fife.IKeyListener):
 				self.application.view.toggleGrid()
 			elif key_val == self.getHotkey("Grid Blockers"):
 				self.application.view.toggleCells()
+			elif key_val == self.getHotkey("Fog of War"):
+				self.application.view.toggleFogOfWar()
 
 			elif key_val == self.getHotkey("Attach to PC"):
 				self.application.view.attachCameraToPlayer()

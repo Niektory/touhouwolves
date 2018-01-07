@@ -45,6 +45,7 @@ class GUIPreferences:
 		self.hotkey_edits = []
 		self.hotkey_actions = [
 			"-- Debug --", "Grid Coordinates", "Grid Instances", "Grid Blockers", "Turbo",
+			"Fog of War",
 			"-- Camera Control --",
 			"Pan Up", "Pan Down", "Pan Left", "Pan Right", "Zoom In", "Zoom Out",
 			"Rotate Clockwise", "Rotate Counterclockwise", "Attach to PC",

@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <assets>
-	<object blocking="1" id="Sakuya" namespace="main" static="0">
+	<object blocking="0" id="Sakuya" namespace="main" static="0">
 		<action id="idle">
 			<animation atlas="Sakuya_idle.png" height="95" width="57" y_offset="-40">
 				<direction delay="1000" dir="315" frames="1" />
