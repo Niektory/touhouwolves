@@ -32,6 +32,7 @@ class World(object):
 			if instance.getObject().getId() == "Wolf":
 				self.wolves.append(Player(instance))
 		self.lives = 8
+		self.moves_counter = 0
 
 	@property
 	def lives(self):
@@ -43,6 +44,15 @@ class World(object):
 		self.application.gui.hud.updateLives(self.lives)
 		if self.lives <= 0:
 			self.application.gui.combat_log.printMessage("GAME OVER")
+
+	@property
+	def moves_counter(self):
+		return self._moves_counter
+
+	@moves_counter.setter
+	def moves_counter(self, new_moves):
+		self._moves_counter = new_moves
+		self.application.gui.combat_log.printMessage("Moves: " + str(self._moves_counter))
 
 	@property
 	def animating(self):
@@ -62,11 +72,12 @@ class World(object):
 		if self.animating:
 			return
 		self.moveEnemies()
+		self.moves_counter += 1
 		self.application.gui.combat_log.printMessage("Sakuya is resting...")
 
 	def movePlayer(self, delta_coords):
 		if self.animating:
-			return
+			return False
 		new_coords = self.player.coords + delta_coords
 		cell = self.application.maplayer.getCellCache().getCell(new_coords)
 		if cell and cell.getCellType() <= 1:
@@ -74,6 +85,7 @@ class World(object):
 			#self.player.move(new_coords)
 			self.moveEnemies()
 			self.player.replayMove()
+			self.moves_counter += 1
 			return True
 		self.application.gui.combat_log.printMessage("Sakuya cannot move in that direction.")
 		facing_location = self.player.instance.getLocation()
