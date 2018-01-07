@@ -39,7 +39,7 @@ class World(object):
 				self.player = Player(instance)
 		self.lives = 8
 		self.bombs = 6
-		self.moves_counter = 0
+		self.moves_counter = -1
 		self.time_stop_counter = 0
 		self.rest_counter = 0
 

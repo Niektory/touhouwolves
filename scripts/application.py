@@ -154,6 +154,7 @@ class Application(CEGUIApplicationBase, PychanApplicationBase):
 		self.world = World(self)
 		self.view = View(self)
 		self.gui.showHUD()
+		self.world.movePlayer(fife.ModelCoordinate(-1,0,0))
 		print("* Game started!")
 
 	def setTimeMultiplier(self, multiplier):
