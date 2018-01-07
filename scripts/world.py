@@ -47,6 +47,10 @@ class World(object):
 	def pump(self, frame_time):
 		pass
 
+	def wait(self):
+		self.moveEnemies()
+		self.application.gui.combat_log.printMessage("Sakuya is resting...")
+
 	def movePlayer(self, delta_coords):
 		new_coords = self.player.coords + delta_coords
 		cell = self.application.maplayer.getCellCache().getCell(new_coords)

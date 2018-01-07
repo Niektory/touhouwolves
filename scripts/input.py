@@ -145,6 +145,8 @@ class KeyListener(fife.IKeyListener):
 				self.application.camera.detach()
 				self.application.view.camera_move_key_right = True
 
+			elif key_val == self.getHotkey("Wait"):
+				self.application.world.wait()
 			elif key_val == self.getHotkey("Move NE"):
 				self.application.world.movePlayer(self.application.view.rotateCoords(
 						fife.ModelCoordinate(1,0,0)))
