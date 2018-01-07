@@ -76,6 +76,20 @@ class World(object):
 		#self.application.gui.combat_log.printMessage("Wolf cannot move in that direction.")
 		return False
 
+	def moveWolfTowardsPlayer(self, wolf):
+		# check if the route is clear first
+		route = wolf.instance.getObject().getPather().createRoute(
+				wolf.instance.getLocation(), self.player.instance.getLocation(), True)
+		if route.getRouteStatus() == 4:
+			# route failed, aborting
+			return
+		elif route.getRouteStatus() == 3:
+			# route solved, moving one square
+			if len(route.getPath()) > 2:
+				route.cutPath(2)
+			route.setRotation(wolf.instance.getRotation())
+			wolf.instance.follow("walk", route, 3.0)
+
 	def moveEnemies(self):
 		for wolf in self.wolves:
 			if (wolf.instance.getLocation().getLayerDistanceTo(self.player.instance.getLocation())
@@ -84,7 +98,8 @@ class World(object):
 				self.lives -= 1
 				wolf.instance.setFacingLocation(self.player.instance.getLocation())
 			elif self.canSeePlayer(wolf):
-				self.application.gui.combat_log.printMessage("Wolf looks at Sakuya.")
+				self.application.gui.combat_log.printMessage("Wolf moves towards Sakuya.")
+				self.moveWolfTowardsPlayer(wolf)
 			elif randrange(0,2) == 0:
 				self.moveWolfTo(wolf, wolf.instance.getFacingLocation())
 			elif randrange(0,2) == 0:
