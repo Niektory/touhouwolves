@@ -1,0 +1,6 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<assets>
+	<object blocking="1" id="Rock2" namespace="main" static="1">
+		<image direction="0" source="Rock2.png" x_offset="0" y_offset="-25" />
+	</object>
+</assets>
