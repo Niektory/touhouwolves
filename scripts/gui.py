@@ -15,6 +15,7 @@ from guimainmenu import GUIMainMenu, GUIGameMenu
 from guitooltip import GUITooltip
 from guihud import GUIHUD
 from guicombatlog import GUICombatLog
+from guiinfodump import GUIInfoDump
 
 
 class GUI:
@@ -37,6 +38,8 @@ class GUI:
 		self.root.addChild(self.help.window)
 		self.combat_log = GUICombatLog(self.help)
 		self.root.addChild(self.combat_log.window)
+		self.info_dump = GUIInfoDump()
+		self.root.addChild(self.info_dump.window)
 		self.preferences = GUIPreferences(self.application)
 		self.root.addChild(self.preferences.window)
 		self.game_menu = GUIGameMenu(self.application, self)
@@ -126,6 +129,7 @@ class GUI:
 		self.game_menu.window.hide()
 		self.help.window.hide()
 		self.hud.hide()
+		self.info_dump.window.hide()
 
 	def showHUD(self):
 		self.hideAll()

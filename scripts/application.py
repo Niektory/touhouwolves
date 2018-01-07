@@ -155,6 +155,7 @@ class Application(CEGUIApplicationBase, PychanApplicationBase):
 		self.view = View(self)
 		self.gui.showHUD()
 		self.world.movePlayer(fife.ModelCoordinate(-1,0,0))
+		self.gui.info_dump.showText("Game start")
 		print("* Game started!")
 
 	def setTimeMultiplier(self, multiplier):
@@ -188,7 +189,8 @@ class Application(CEGUIApplicationBase, PychanApplicationBase):
 
 	def forcePause(self):
 		gui_pause = (self.gui.game_menu.window.isVisible()
-				or self.gui.preferences.window.isVisible() or self.gui.help.window.isVisible())
+				or self.gui.preferences.window.isVisible() or self.gui.help.window.isVisible()
+				or self.gui.info_dump.window.isVisible())
 		if gui_pause or self._paused:
 			self.pause()
 		else:
