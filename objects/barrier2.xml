@@ -1,0 +1,9 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<assets>
+	<object blocking="1" id="barrier2" namespace="main" static="1">
+		<image direction="0" source="barrier2.png" x_offset="0" y_offset="-14" />
+		<image direction="90" source="barrier.png" x_offset="0" y_offset="-14" />
+		<image direction="180" source="barrier2.png" x_offset="0" y_offset="-14" />
+		<image direction="270" source="barrier.png" x_offset="0" y_offset="-14" />
+	</object>
+</assets>

@@ -2,5 +2,8 @@
 <assets>
 	<object blocking="1" id="barrier" namespace="main" static="1">
 		<image direction="0" source="barrier.png" x_offset="0" y_offset="-14" />
+		<image direction="90" source="barrier2.png" x_offset="0" y_offset="-14" />
+		<image direction="180" source="barrier.png" x_offset="0" y_offset="-14" />
+		<image direction="270" source="barrier2.png" x_offset="0" y_offset="-14" />
 	</object>
 </assets>
