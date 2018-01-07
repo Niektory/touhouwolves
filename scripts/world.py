@@ -32,6 +32,7 @@ class World(object):
 			if instance.getObject().getId() == "Wolf":
 				self.wolves.append(Player(instance))
 		self.lives = 8
+		self.bombs = 6
 		self.moves_counter = 0
 		self.time_stop_counter = 0
 
@@ -42,9 +43,19 @@ class World(object):
 	@lives.setter
 	def lives(self, new_lives):
 		self._lives = new_lives
-		self.application.gui.hud.updateLives(self.lives)
+		self.application.gui.hud.updateLives(self._lives)
 		if self.lives <= 0:
 			self.application.gui.combat_log.printMessage("GAME OVER")
+
+	@property
+	def bombs(self):
+		return self._bombs
+
+	@bombs.setter
+	def bombs(self, new_bombs):
+		self._bombs = new_bombs
+		#self.application.gui.hud.updateBombs(self._bombs)
+		self.application.gui.combat_log.printMessage("Bombs: " + str(self._bombs))
 
 	@property
 	def moves_counter(self):
@@ -86,6 +97,11 @@ class World(object):
 		self.application.gui.combat_log.printMessage("Sakuya is resting...")
 
 	def stopTime(self):
+		if self.time_stop_counter:
+			return
+		if self.bombs < 2:
+			return
+		self.bombs -= 2
 		self.time_stop_counter += 2
 
 	def movePlayer(self, delta_coords):
