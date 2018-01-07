@@ -43,11 +43,11 @@ class GUIHUD:
 	def updateBombs(self, bombs_left):
 		for star in self.stars:
 			if bombs_left >= 2:
-				star.setProperty("Image", "hp_1/full_image")
+				star.setProperty("Image", "mp_1/full_image")
 			elif bombs_left == 1:
-				star.setProperty("Image", "hp_2/full_image")
+				star.setProperty("Image", "mp_2/full_image")
 			else:
-				star.setProperty("Image", "hp_3/full_image")
+				star.setProperty("Image", "mp_3/full_image")
 			bombs_left -= 2
 
 	def updateMoves(self, moves):

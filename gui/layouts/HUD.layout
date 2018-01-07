@@ -41,21 +41,21 @@
 				<Property name="BackgroundEnabled" value="False" />
 				<Property name="Position" value="{{0,4},{0,4}" />
 				<Property name="Size" value="{{0,53},{0,64}}" />
-				<Property name="Image" value="hp_1/full_image" />
+				<Property name="Image" value="mp_1/full_image" />
 			</Window>
 			<Window type="TaharezLook/StaticImage" name="Star2" >
 				<Property name="FrameEnabled" value="False" />
 				<Property name="BackgroundEnabled" value="False" />
 				<Property name="Position" value="{{0,61},{0,4}" />
 				<Property name="Size" value="{{0,53},{0,64}}" />
-				<Property name="Image" value="hp_2/full_image" />
+				<Property name="Image" value="mp_2/full_image" />
 			</Window>
 			<Window type="TaharezLook/StaticImage" name="Star3" >
 				<Property name="FrameEnabled" value="False" />
 				<Property name="BackgroundEnabled" value="False" />
 				<Property name="Position" value="{{0,118},{0,4}" />
 				<Property name="Size" value="{{0,53},{0,64}}" />
-				<Property name="Image" value="hp_3/full_image" />
+				<Property name="Image" value="mp_3/full_image" />
 			</Window>
 		</Window>
 		<Window type="TaharezLook/StaticText" name="Moves" >

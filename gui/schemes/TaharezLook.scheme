@@ -40,6 +40,9 @@
 	<Imageset filename="hp_1.imageset" />
 	<Imageset filename="hp_2.imageset" />
 	<Imageset filename="hp_3.imageset" />
+	<Imageset filename="mp_1.imageset" />
+	<Imageset filename="mp_2.imageset" />
+	<Imageset filename="mp_3.imageset" />
 	<Imageset filename="stop_time_overlay.imageset" />
 	<Font filename="Default.font" />
 	<Font filename="Monospace.font" />
