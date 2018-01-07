@@ -30,9 +30,11 @@ class World(object):
 			if instance.getObject().getId() == "Wolf":
 				self.wolves.append(Player(instance))
 			elif instance.getObject().getId() == "Momiji":
-				self.wolves.append(Player(instance))
+				self.momiji = Player(instance)
+				self.wolves.append(self.momiji)
 			elif instance.getObject().getId() == "Kagerou":
-				self.wolves.append(Player(instance))
+				self.kagerou = Player(instance)
+				self.wolves.append(self.kagerou)
 			elif instance.getObject().getId() == "Sakuya":
 				self.player = Player(instance)
 		self.lives = 8
@@ -146,6 +148,9 @@ class World(object):
 					self.wolves.remove(wolf)
 					facing_location.getLayer().deleteInstance(wolf.instance)
 					self.application.gui.combat_log.printMessage("Wolf was killed.")
+				if self.kagerou.dead and self.momiji.dead:
+					self.application.gui.combat_log.printMessage(
+							"VICTORY in " + str(self.moves_counter) + " moves!")
 				self.moveEnemies()
 				self.rest_counter = 0
 				return

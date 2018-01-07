@@ -13,6 +13,10 @@ class Player(object):
 		self.health = 4
 
 	@property
+	def dead(self):
+		return self.health <= 0
+
+	@property
 	def coords(self):
 		return self.instance.getLocation().getLayerCoordinates()
 
