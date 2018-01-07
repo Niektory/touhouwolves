@@ -1,0 +1,3 @@
+<Imageset name="stop_time_overlay" imagefile="stop_time_overlay.png" autoScaled="false" version="2">
+    <Image name="full_image" width="800" height="600" xPos="0" yPos="0" />
+</Imageset>

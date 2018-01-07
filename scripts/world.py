@@ -93,7 +93,8 @@ class World(object):
 	@time_stop_counter.setter
 	def time_stop_counter(self, new_time):
 		self._time_stop_counter = new_time
-		self.application.gui.combat_log.printMessage("Time stop: " + str(self._time_stop_counter))
+		self.application.gui.hud.updateTimeStop(self._time_stop_counter)
+		#self.application.gui.combat_log.printMessage("Time stop: " + str(self._time_stop_counter))
 
 	@property
 	def rest_counter(self):

@@ -24,6 +24,7 @@ class GUIHUD:
 		for i in xrange(1,4):
 			self.stars.append(self.bombs.getChild("Star"+str(i)))
 		self.moves = self.window.getChild("Moves")
+		self.time_stop = self.window.getChild("TimeStop")
 
 		self.visible = False
 
@@ -51,6 +52,12 @@ class GUIHUD:
 
 	def updateMoves(self, moves):
 		self.moves.setText("MOVES\n" + str(moves))
+
+	def updateTimeStop(self, visible):
+		if visible:
+			self.time_stop.show()
+		else:
+			self.time_stop.hide()
 
 	def updateTooltips(self):
 		pass

@@ -65,5 +65,12 @@
 			<Property name="Text" value="MOVES" />
 			<Property name="HorzFormatting" value="CentreAligned" />
 		</Window>
+		<Window type="TaharezLook/StaticImage" name="TimeStop" >
+			<Property name="Area" value="{{0,0},{0,0},{1,0},{1,0}}" />
+			<Property name="FrameEnabled" value="False" />
+			<Property name="BackgroundEnabled" value="False" />
+			<Property name="Image" value="stop_time_overlay/full_image" />
+			<Property name="MousePassThroughEnabled" value="True" />
+		</Window>
 	</Window>
 </GUILayout>
