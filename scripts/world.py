@@ -157,7 +157,7 @@ class World(object):
 		for wolf in self.wolves:
 			if facing_location == wolf.instance.getLocation():
 				#self.application.gui.combat_log.printMessage("Sakuya slashes wolf.")
-				#self.application.gui.sayBubble(wolf.instance, "hit!")
+				self.application.gui.sayBubble(self.player.instance, "Take that!", 1000)
 				self.application.view.instance_renderer.addColored(wolf.instance, 255, 0, 0)
 				self.application.real_timeline.addTimer(Timer("uncolor", 100, lambda:
 						self.application.view.instance_renderer.removeColored(wolf.instance)))
@@ -230,6 +230,7 @@ class World(object):
 			if (wolf.instance.getLocation().getLayerDistanceTo(self.player.instance.getLocation())
 					<= 1):
 				#self.application.gui.combat_log.printMessage("Wolf bites Sakuya. Ouch!")
+				self.application.gui.sayBubble(wolf.instance, "*CHOMP*", 1000)
 				self.lives -= 1
 				wolf.instance.setFacingLocation(self.player.instance.getLocation())
 				#wolf.instance.say("attack")
