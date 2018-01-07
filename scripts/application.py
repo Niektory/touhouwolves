@@ -155,7 +155,20 @@ class Application(CEGUIApplicationBase, PychanApplicationBase):
 		self.view = View(self)
 		self.gui.showHUD()
 		self.world.movePlayer(fife.ModelCoordinate(-1,0,0))
-		self.gui.info_dump.showText("Game start")
+		self.gui.info_dump.showText(u"""  “Really, how does she expect me to find her in this forest?”
+		  Apparently Remilia was no longer satisfied with just playing hide and seek in the mansion.
+		  “I guess getting lost yourself while you’re looking for someone else is something she finds amusing.”
+		  Sakuya went along with the vampire’s games, as always.
+		  “And why is this rock lying here in the middle of the path?”
+		  For some reason, probably because of her habit of keeping things tidy, she pushed the rock aside.
+		  “Oh...”
+		  Only now did she notice the worn-out amulets adorning the rock.
+		  And then she noticed something else.
+		  “This is troublesome...” she muttered, wagging her tail.
+		  Apparently, a curse was sealed here. A canine curse...
+		  “Awooo~”
+		  Hearing the distant howl, she realized she wasn't the only one affected. She set out to find a way to restore her original form.
+		""")
 		print("* Game started!")
 
 	def setTimeMultiplier(self, multiplier):
