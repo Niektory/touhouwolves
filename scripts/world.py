@@ -7,6 +7,7 @@ from fife import fife
 from random import randrange
 
 from player import Player
+import gridhelper
 
 
 def randomDirection():
@@ -48,15 +49,31 @@ class World(object):
 
 	def movePlayer(self, delta_coords):
 		new_coords = self.player.coords + delta_coords
-		try:
-			if self.application.maplayer.getCellCache().getCell(new_coords).getCellType() <= 1:
-				#self.player.coords = new_coords # instant movement
-				self.player.move(new_coords)
-				self.moveEnemies()
-				return True
-		except AttributeError:
-			pass
+		cell = self.application.maplayer.getCellCache().getCell(new_coords)
+		if cell and cell.getCellType() <= 1:
+			#self.player.coords = new_coords # instant movement
+			self.player.move(new_coords)
+			self.moveEnemies()
+			return True
 		self.application.gui.combat_log.printMessage("Sakuya cannot move in that direction.")
+		return False
+
+	def moveWolf(self, wolf, delta_coords):
+		new_coords = wolf.coords + delta_coords
+		cell = self.application.maplayer.getCellCache().getCell(new_coords)
+		if cell and cell.getCellType() <= 1:
+			#self.wolf.coords = new_coords # instant movement
+			wolf.move(new_coords)
+			return True
+		#self.application.gui.combat_log.printMessage("Wolf cannot move in that direction.")
+		return False
+
+	def moveWolfTo(self, wolf, location):
+		cell = self.application.maplayer.getCellCache().getCell(location.getLayerCoordinates())
+		if cell and cell.getCellType() <= 1:
+			wolf.move(location)
+			return True
+		#self.application.gui.combat_log.printMessage("Wolf cannot move in that direction.")
 		return False
 
 	def moveEnemies(self):
@@ -66,32 +83,27 @@ class World(object):
 				self.application.gui.combat_log.printMessage("Wolf bites Sakuya. Ouch!")
 				self.lives -= 1
 				wolf.instance.setFacingLocation(self.player.instance.getLocation())
-			#elif can see player:
-			#	move towards player
+			elif self.canSeePlayer(wolf):
+				self.application.gui.combat_log.printMessage("Wolf looks at Sakuya.")
 			elif randrange(0,2) == 0:
 				self.moveWolfTo(wolf, wolf.instance.getFacingLocation())
 			elif randrange(0,2) == 0:
 				self.moveWolf(wolf, randomDirection())
 
-	def moveWolfTo(self, wolf, location):
-		try:
-			if self.application.maplayer.getCellCache().getCell(location.getLayerCoordinates())\
-					.getCellType() <= 1:
-				wolf.move(location)
-				return True
-		except AttributeError:
-			pass
-		self.application.gui.combat_log.printMessage("Wolf cannot move in that direction.")
-		return False
-
-	def moveWolf(self, wolf, delta_coords):
-		new_coords = wolf.coords + delta_coords
-		try:
-			if self.application.maplayer.getCellCache().getCell(new_coords).getCellType() <= 1:
-				#self.wolf.coords = new_coords # instant movement
-				wolf.move(new_coords)
-				return True
-		except AttributeError:
-			pass
-		self.application.gui.combat_log.printMessage("Wolf cannot move in that direction.")
-		return False
+	def canSeePlayer(self, enemy):
+		if (enemy.instance.getLocation().getLayerDistanceTo(self.player.instance.getLocation())
+				> 5):
+			# very far, can't see
+			return False
+		elif (enemy.instance.getLocation().getLayerDistanceTo(self.player.instance.getLocation())
+				> 3):
+			# within vision range, check vision angle
+			angle = gridhelper.angleDifference(
+					enemy.instance.getRotation(),
+					fife.getAngleBetween(
+						enemy.instance.getLocation(), self.player.instance.getLocation()))
+			if angle > 105:
+				# not in front, can't see
+				return False
+		# in other cases can see
+		return True
