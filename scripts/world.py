@@ -35,6 +35,7 @@ class World(object):
 		self.bombs = 6
 		self.moves_counter = 0
 		self.time_stop_counter = 0
+		self.rest_counter = 0
 
 	@property
 	def lives(self):
@@ -42,9 +43,10 @@ class World(object):
 
 	@lives.setter
 	def lives(self, new_lives):
-		self._lives = new_lives
+		self._lives = min(new_lives, 8)
 		self.application.gui.hud.updateLives(self._lives)
-		if self.lives <= 0:
+		self.rest_counter = 0
+		if self._lives <= 0:
 			self.application.gui.combat_log.printMessage("GAME OVER")
 
 	@property
@@ -53,7 +55,7 @@ class World(object):
 
 	@bombs.setter
 	def bombs(self, new_bombs):
-		self._bombs = new_bombs
+		self._bombs = min(new_bombs, 6)
 		#self.application.gui.hud.updateBombs(self._bombs)
 		self.application.gui.combat_log.printMessage("Bombs: " + str(self._bombs))
 
@@ -86,14 +88,25 @@ class World(object):
 		self._time_stop_counter = new_time
 		self.application.gui.combat_log.printMessage("Time stop: " + str(self._time_stop_counter))
 
+	@property
+	def rest_counter(self):
+		return self._rest_counter
+
+	@rest_counter.setter
+	def rest_counter(self, new_rest):
+		self._rest_counter = new_rest
+		if self._rest_counter >= 4:
+			self.lives += 1
+
 	def pump(self, frame_time):
 		pass
 
 	def wait(self):
 		if self.animating:
 			return
-		self.moveEnemies()
 		self.application.gui.combat_log.printMessage("Sakuya is resting...")
+		self.rest_counter += 1
+		self.moveEnemies()
 
 	def stopTime(self):
 		if self.time_stop_counter:
@@ -102,6 +115,7 @@ class World(object):
 			return
 		self.bombs -= 2
 		self.time_stop_counter += 2
+		self.rest_counter = 0
 
 	def movePlayer(self, delta_coords):
 		if self.animating:
@@ -113,6 +127,7 @@ class World(object):
 			#self.player.move(new_coords)
 			self.moveEnemies()
 			self.player.replayMove()
+			self.rest_counter = 0
 			return
 		self.application.gui.combat_log.printMessage("Sakuya cannot move in that direction.")
 		facing_location = self.player.instance.getLocation()
@@ -128,6 +143,7 @@ class World(object):
 					facing_location.getLayer().deleteInstance(wolf.instance)
 					self.application.gui.combat_log.printMessage("Wolf was killed.")
 				self.moveEnemies()
+				self.rest_counter = 0
 				return
 
 	def moveWolf(self, wolf, delta_coords):
