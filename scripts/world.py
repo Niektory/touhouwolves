@@ -4,8 +4,21 @@
 from __future__ import print_function
 
 from fife import fife
+from random import randrange
 
 from player import Player
+
+
+def randomDirection():
+	random_number = randrange(0,5)
+	if random_number == 0:
+		return fife.ModelCoordinate(1,0,0)
+	if random_number == 1:
+		return fife.ModelCoordinate(-1,0,0)
+	if random_number == 2:
+		return fife.ModelCoordinate(0,1,0)
+	else:
+		return fife.ModelCoordinate(0,-1,0)
 
 
 class World(object):
@@ -53,17 +66,23 @@ class World(object):
 				self.application.gui.combat_log.printMessage("Wolf bites Sakuya. Ouch!")
 				self.lives -= 1
 				wolf.instance.setFacingLocation(self.player.instance.getLocation())
-				"""
-			elif can see player:
-				move towards player
-			elif random:
-				move in current direction
-				wolf.instance.getFacingLocation()
-			elif random:
-				move in random direction
+			#elif can see player:
+			#	move towards player
+			elif randrange(0,2) == 0:
+				self.moveWolfTo(wolf, wolf.instance.getFacingLocation())
+			elif randrange(0,2) == 0:
+				self.moveWolf(wolf, randomDirection())
 
-			self.moveWolf(wolf, fife.ModelCoordinate(1,0,0))
-			"""
+	def moveWolfTo(self, wolf, location):
+		try:
+			if self.application.maplayer.getCellCache().getCell(location.getLayerCoordinates())\
+					.getCellType() <= 1:
+				wolf.move(location)
+				return True
+		except AttributeError:
+			pass
+		self.application.gui.combat_log.printMessage("Wolf cannot move in that direction.")
+		return False
 
 	def moveWolf(self, wolf, delta_coords):
 		new_coords = wolf.coords + delta_coords

@@ -3,7 +3,7 @@
 
 from __future__ import print_function
 
-#from fife import fife
+from fife import fife
 
 
 class Player(object):
@@ -20,7 +20,10 @@ class Player(object):
 		location.setLayerCoordinates(new_coords)
 		self.instance.setLocation(location)
 
-	def move(self, dest_coords):
-		location = self.instance.getLocation()
-		location.setLayerCoordinates(dest_coords)
+	def move(self, dest):
+		if isinstance(dest, fife.Location):
+			location = dest
+		elif isinstance(fife.ModelCoordinate(), fife.ModelCoordinate):
+			location = self.instance.getLocation()
+			location.setLayerCoordinates(dest)
 		self.instance.move("walk", location, 3)
