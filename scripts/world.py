@@ -27,10 +27,14 @@ class World(object):
 		self.application = application
 		self.wolves = []
 		for instance in self.application.maplayer.getInstances():
-			if instance.getObject().getId() == "Sakuya":
-				self.player = Player(instance)
 			if instance.getObject().getId() == "Wolf":
 				self.wolves.append(Player(instance))
+			elif instance.getObject().getId() == "Momiji":
+				self.wolves.append(Player(instance))
+			elif instance.getObject().getId() == "Kagerou":
+				self.wolves.append(Player(instance))
+			elif instance.getObject().getId() == "Sakuya":
+				self.player = Player(instance)
 		self.lives = 8
 		self.bombs = 6
 		self.moves_counter = 0

@@ -1,0 +1,21 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<assets>
+	<object blocking="1" id="Momiji" namespace="main" static="0">
+		<action id="idle">
+			<animation atlas="Sakuya_idle.png" height="95" width="57" y_offset="-40">
+				<direction delay="1000" dir="315" frames="1" />
+				<direction delay="1000" dir="135" frames="1" />
+				<direction delay="1000" dir="225" frames="1" />
+				<direction delay="1000" dir="45" frames="1" />
+			</animation>
+		</action>
+		<action id="walk">
+			<animation atlas="Sakuya_walk.png" height="95" width="57" y_offset="-40">
+				<direction delay="20" dir="315" frames="17" />
+				<direction delay="20" dir="135" frames="17" />
+				<direction delay="20" dir="225" frames="17" />
+				<direction delay="20" dir="45" frames="17" />
+			</animation>
+		</action>
+	</object>
+</assets>

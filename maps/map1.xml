@@ -12,6 +12,8 @@
     <import file="../objects/Path_Left_1_Night.xml" />
     <import file="../objects/Path_Right_1_Night.xml" />
     <import file="../objects/Sakuya.xml" />
+    <import file="../objects/Momiji.xml" />
+    <import file="../objects/Kagerou.xml" />
     <import file="../objects/Wolf.xml" />
     <layer id="ground_layer" x_offset="0.000000" y_offset="0.000000" z_offset="0.000000" x_scale="1.000000" y_scale="1.000000" rotation="0.000000" grid_type="square" transparency="0" pathing="cell_edges_only" sorting="camera" layer_type="interact" layer_type_id="buildings_layer">
         <instances>
@@ -754,7 +756,9 @@
     </layer>
     <layer id="buildings_layer" x_offset="0.000000" y_offset="0.000000" z_offset="0.000000" x_scale="1.000000" y_scale="1.000000" rotation="0.000000" grid_type="square" transparency="0" pathing="cell_edges_only" sorting="camera" layer_type="walkable">
         <instances>
-            <i ns="main" o="Sakuya" x="-10.000000" y="-4.000000" z="0.000000" r="0" stackpos="0" />
+            <i ns="main" o="Sakuya" x="-10.000000" y="1.000000" z="0.000000" r="0" stackpos="0" />
+            <i o="Momiji" x="-21.000000" y="0.000000" z="0.000000" r="0" stackpos="0" />
+            <i o="Kagerou" x="0.000000" y="2.000000" z="0.000000" r="0" stackpos="0" />
             <i o="Wolf" x="-10.000000" y="-5.000000" z="0.000000" r="0" stackpos="0" />
             <i o="Wolf" x="-11.000000" y="-6.000000" z="0.000000" r="0" stackpos="0" />
             <i o="Wolf" x="-9.000000" y="-7.000000" z="0.000000" r="0" stackpos="0" />
