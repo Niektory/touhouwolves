@@ -8,6 +8,7 @@ from random import randrange
 
 from player import Player
 import gridhelper
+from timeline import Timer
 
 
 def randomDirection():
@@ -37,6 +38,7 @@ class World(object):
 				self.wolves.append(self.kagerou)
 			elif instance.getObject().getId() == "Sakuya":
 				self.player = Player(instance)
+		self._lives = 8
 		self.lives = 8
 		self.bombs = 6
 		self.moves_counter = -1
@@ -49,6 +51,14 @@ class World(object):
 
 	@lives.setter
 	def lives(self, new_lives):
+		if self._lives < new_lives <= 8:
+			self.application.view.instance_renderer.addColored(self.player.instance, 0, 255, 0)
+			self.application.real_timeline.addTimer(Timer("uncolor", 100, lambda:
+					self.application.view.instance_renderer.removeColored(self.player.instance)))
+		elif self._lives > new_lives:
+			self.application.view.instance_renderer.addColored(self.player.instance, 255, 0, 0)
+			self.application.real_timeline.addTimer(Timer("uncolor", 100, lambda:
+					self.application.view.instance_renderer.removeColored(self.player.instance)))
 		self._lives = min(new_lives, 8)
 		self.application.gui.hud.updateLives(self._lives)
 		self.rest_counter = 0
@@ -107,13 +117,14 @@ class World(object):
 		if self._rest_counter >= 4:
 			self.lives += 1
 
+
 	def pump(self, frame_time):
 		pass
 
 	def wait(self):
 		if self.animating:
 			return
-		self.application.gui.combat_log.printMessage("Sakuya is resting...")
+		#self.application.gui.combat_log.printMessage("Sakuya is resting...")
 		self.rest_counter += 1
 		self.moveEnemies()
 
@@ -138,14 +149,18 @@ class World(object):
 			self.player.replayMove()
 			self.rest_counter = 0
 			return
-		self.application.gui.combat_log.printMessage("Sakuya cannot move in that direction.")
+		#self.application.gui.combat_log.printMessage("Sakuya cannot move in that direction.")
 		facing_location = self.player.instance.getLocation()
 		facing_location.setLayerCoordinates(new_coords)
 		self.player.instance.setFacingLocation(facing_location)
 		# can't move; but maybe we can attack?
 		for wolf in self.wolves:
 			if facing_location == wolf.instance.getLocation():
-				self.application.gui.combat_log.printMessage("Sakuya slashes wolf.")
+				#self.application.gui.combat_log.printMessage("Sakuya slashes wolf.")
+				#self.application.gui.sayBubble(wolf.instance, "hit!")
+				self.application.view.instance_renderer.addColored(wolf.instance, 255, 0, 0)
+				self.application.real_timeline.addTimer(Timer("uncolor", 100, lambda:
+						self.application.view.instance_renderer.removeColored(wolf.instance)))
 				wolf.health -= 1
 				if wolf.health <= 0:
 					self.wolves.remove(wolf)
@@ -167,7 +182,8 @@ class World(object):
 							self.application.gui.info_dump.showText(
 									"You got Momiji!")
 					else:
-						self.application.gui.combat_log.printMessage("Wolf was killed.")
+						pass
+						#self.application.gui.combat_log.printMessage("Wolf was killed.")
 				self.moveEnemies()
 				self.rest_counter = 0
 				return
@@ -213,22 +229,23 @@ class World(object):
 		for wolf in self.wolves:
 			if (wolf.instance.getLocation().getLayerDistanceTo(self.player.instance.getLocation())
 					<= 1):
-				self.application.gui.combat_log.printMessage("Wolf bites Sakuya. Ouch!")
+				#self.application.gui.combat_log.printMessage("Wolf bites Sakuya. Ouch!")
 				self.lives -= 1
 				wolf.instance.setFacingLocation(self.player.instance.getLocation())
-				wolf.instance.say("attack")
+				#wolf.instance.say("attack")
 			elif self.canSeePlayer(wolf):
-				self.application.gui.combat_log.printMessage("Wolf moves towards Sakuya.")
+				#self.application.gui.combat_log.printMessage("Wolf moves towards Sakuya.")
 				self.moveWolfTowardsPlayer(wolf)
-				wolf.instance.say("pursue")
+				#wolf.instance.say("pursue")
 			elif randrange(0,2) == 0:
 				self.moveWolfTo(wolf, wolf.instance.getFacingLocation())
-				wolf.instance.say("move straight")
+				#wolf.instance.say("move straight")
 			elif randrange(0,2) == 0:
 				self.moveWolf(wolf, randomDirection())
-				wolf.instance.say("move random")
+				#wolf.instance.say("move random")
 			else:
-				wolf.instance.say("idle")
+				pass
+				#wolf.instance.say("idle")
 		for wolf in self.wolves:
 			wolf.replayMove()
 
