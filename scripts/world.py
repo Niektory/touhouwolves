@@ -44,14 +44,29 @@ class World(object):
 		if self.lives <= 0:
 			self.application.gui.combat_log.printMessage("GAME OVER")
 
+	@property
+	def animating(self):
+		action = self.player.instance.getCurrentAction()
+		if action and action.getId() == "walk":
+			return True
+		for wolf in self.wolves:
+			action = wolf.instance.getCurrentAction()
+			if action and action.getId() == "walk":
+				return True
+		return False
+
 	def pump(self, frame_time):
 		pass
 
 	def wait(self):
+		if self.animating:
+			return
 		self.moveEnemies()
 		self.application.gui.combat_log.printMessage("Sakuya is resting...")
 
 	def movePlayer(self, delta_coords):
+		if self.animating:
+			return
 		new_coords = self.player.coords + delta_coords
 		cell = self.application.maplayer.getCellCache().getCell(new_coords)
 		if cell and cell.getCellType() <= 1:
@@ -61,6 +76,9 @@ class World(object):
 			self.player.replayMove()
 			return True
 		self.application.gui.combat_log.printMessage("Sakuya cannot move in that direction.")
+		facing_location = self.player.instance.getLocation()
+		facing_location.setLayerCoordinates(new_coords)
+		self.player.instance.setFacingLocation(facing_location)
 		return False
 
 	def moveWolf(self, wolf, delta_coords):
@@ -71,6 +89,9 @@ class World(object):
 			wolf.moveInstant(new_coords)
 			return True
 		#self.application.gui.combat_log.printMessage("Wolf cannot move in that direction.")
+		facing_location = wolf.instance.getLocation()
+		facing_location.setLayerCoordinates(new_coords)
+		wolf.instance.setFacingLocation(facing_location)
 		return False
 
 	def moveWolfTo(self, wolf, location):
@@ -79,6 +100,7 @@ class World(object):
 			wolf.moveInstant(location)
 			return True
 		#self.application.gui.combat_log.printMessage("Wolf cannot move in that direction.")
+		wolf.instance.setFacingLocation(location)
 		return False
 
 	def moveWolfTowardsPlayer(self, wolf):
