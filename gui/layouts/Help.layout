@@ -14,17 +14,20 @@
 			<Property name="Position" value="{{0,14},{0,14}}" />
 			<Property name="Size" value="{{0,120},{0,33}}" />
 			<Property name="WantsMultiClickEvents" value="False" />
+			<Property name="Visible" value="False" />
         </Window>
         <Window type="TaharezLook/Button" name="ForwardButton" >
             <Property name="Text" value="Forward &#8594;" />
 			<Property name="Position" value="{{0,139},{0,14}}" />
 			<Property name="Size" value="{{0,120},{0,33}}" />
 			<Property name="WantsMultiClickEvents" value="False" />
+			<Property name="Visible" value="False" />
         </Window>
         <Window type="TaharezLook/Button" name="HomeButton" >
             <Property name="Text" value="Home" />
 			<Property name="Position" value="{{0,264},{0,14}}" />
 			<Property name="Size" value="{{0,100},{0,33}}" />
+			<Property name="Visible" value="False" />
         </Window>
         <Window type="TaharezLook/Button" name="CloseButton" >
             <Property name="Text" value="Close" />

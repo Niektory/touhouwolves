@@ -85,6 +85,7 @@
 		        <Property name="Text" value="Preload sprites" />
 		        <Property name="Position" value="{{0,10},{0,100}}" />
 		        <Property name="Size" value="{{1,-20},{0,21}}" />
+				<Property name="Visible" value="False" />
             </Window>
 		    <Window type="TaharezLook/Editbox" name="TimeAccelerationEdit" >
 		        <Property name="Text" value="1" />

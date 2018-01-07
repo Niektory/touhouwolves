@@ -12,7 +12,7 @@
 		    <Property name="TitlebarEnabled" value="False" />
 			<Property name="CloseButtonEnabled" value="False" />
 			<Property name="SizingEnabled" value="False" />
-		    <Property name="Area" value="{{0.5,-90},{0.5,-137},{0.5,91},{0.5,137}}" />
+		    <Property name="Area" value="{{0.5,-90},{0.5,-96},{0.5,91},{0.5,96}}" />
 		    <Window type="TaharezLook/Button" name="NewGameButton" >
 		        <Property name="Position" value="{{0,14},{0,14}}" />
 		        <Property name="Size" value="{{0,145},{0,33}}" />
@@ -20,17 +20,17 @@
 		    </Window>
 		    <Window type="TaharezLook/Button" name="PreferencesButton" >
 		        <Property name="Text" value="Preferences" />
-		        <Property name="Position" value="{{0,14},{0,137}}" />
+		        <Property name="Position" value="{{0,14},{0,55}}" />
 		        <Property name="Size" value="{{0,145},{0,33}}" />
 		    </Window>
 			<Window type="TaharezLook/Button" name="HelpButton" >
 				<Property name="Text" value="Help" />
-				<Property name="Position" value="{{0,14},{0,178}}" />
+				<Property name="Position" value="{{0,14},{0,96}}" />
 				<Property name="Size" value="{{0,145},{0,33}}" />
 			</Window>
 		    <Window type="TaharezLook/Button" name="QuitGameButton" >
 		        <Property name="Text" value="Quit" />
-		        <Property name="Position" value="{{0,14},{0,219}}" />
+		        <Property name="Position" value="{{0,14},{0,137}}" />
 		        <Property name="Size" value="{{0,145},{0,33}}" />
 		    </Window>
 		</Window>
