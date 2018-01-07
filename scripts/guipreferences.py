@@ -102,6 +102,8 @@ class GUIPreferences:
 			self.application.soundmanager.setVolume(0.0)
 		self.application.settings.set("gameplay", "TimeAcceleration",
 					int(self.time_acceleration_edit.getText()))
+		self.application.game_speed = self.application.settings.get(
+					"gameplay", "TimeAcceleration", 1)
 		self.application.settings.set("gameplay", "PreloadSprites",
 					self.preload_sprites_checkbox.isSelected())
 

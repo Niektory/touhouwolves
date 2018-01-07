@@ -63,7 +63,7 @@ class Application(CEGUIApplicationBase, PychanApplicationBase):
 		self.gui = GUI(self)
 		self.real_timeline = RealTimeline()
 		self.engine.getTimeManager().registerEvent(self.real_timeline)
-		self.game_speed = 1
+		self.game_speed = settings.get("gameplay", "TimeAcceleration", 1)
 
 		print("* Loading objects...")
 		for import_object in importobjects.import_list:
