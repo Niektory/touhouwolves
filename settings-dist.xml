@@ -49,5 +49,7 @@
 		<Setting name="Move NW" type="unicode">LEFT</Setting>
 		<Setting name="Move SW" type="unicode">DOWN</Setting>
 		<Setting name="Move SE" type="unicode">RIGHT</Setting>
+		<Setting name="Wait" type="unicode">SPACE</Setting>
+		<Setting name="Stop Time" type="unicode">ENTER</Setting>
 	</Module>
 </Settings>
