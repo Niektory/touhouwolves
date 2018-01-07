@@ -64,7 +64,9 @@ class World(object):
 		self.rest_counter = 0
 		if self._lives <= 0:
 			#self.application.gui.combat_log.printMessage("GAME OVER")
-			self.application.gui.info_dump.showText("GAME OVER", self.application.gameOver)
+			self.application.gui.info_dump.showText(u"""  GAME OVER
+			  Now you’ll always be remembered as the vampire’s dog...""",
+					self.application.gameOver)
 
 	@property
 	def bombs(self):
@@ -167,20 +169,19 @@ class World(object):
 					facing_location.getLayer().deleteInstance(wolf.instance)
 					if wolf.instance.getObject().getId() == "Kagerou":
 						if self.momiji.dead:
-							self.application.gui.info_dump.showText(
-									"You got Kagerou, too!", self.victory)
+							self.application.gui.info_dump.showText(u"""  After calming down both wolf-girls, it appears that the effects of the curse are subsiding.""", self.victory)
 							return
 						else:
-							self.application.gui.info_dump.showText(
-									"You got Kagerou!")
+							self.application.gui.info_dump.showText(u"""  You were able to calm Kagerou down. However, it seems there is still one more foe you need to face.""")
 					elif wolf.instance.getObject().getId() == "Momiji":
 						if self.kagerou.dead:
-							self.application.gui.info_dump.showText(
-									"You got Momiji, too!", self.victory)
+							self.application.gui.info_dump.showText(u"""  “Awooo~sob...”
+							  “Wait, you’re Momiji? I knew it was weird to meet Kagerou again... This curse sure works in mysterious ways.”
+							  Thankfully, after calming down both wolf-girls, it appears that the effects of the curse are subsiding.""", self.victory)
 							return
 						else:
-							self.application.gui.info_dump.showText(
-									"You got Momiji!")
+							self.application.gui.info_dump.showText(u"""  “Awooo~sob...”
+							  “Wait, Momiji? I thought you were Kagerou... This curse sure works in mysterious ways. I guess I’ll have to find the real Kagerou then.”""")
 					else:
 						pass
 						#self.application.gui.combat_log.printMessage("Wolf was killed.")
@@ -270,5 +271,5 @@ class World(object):
 
 	def victory(self):
 		self.application.gui.info_dump.showText(
-				"VICTORY in " + str(self.moves_counter) + " moves!",
+				"  VICTORY in " + str(self.moves_counter) + " moves.\n  Congratulations!",
 				self.application.gameOver)
