@@ -42,17 +42,11 @@
 	<Module name="CEGUI">
 		<Setting name="schemes" type="str"> gui/schemes/ </Setting>
 	</Module>
-	<Module name="hotkeys">
-		<Setting name="Grid Coordinates" type="unicode">O</Setting>
-		<Setting name="Grid Instances" type="unicode">G</Setting>
-		<Setting name="Grid Blockers" type="unicode">B</Setting>
-		<Setting name="Pan Up" type="unicode">UP</Setting>
-		<Setting name="Pan Down" type="unicode">DOWN</Setting>
-		<Setting name="Pan Left" type="unicode">LEFT</Setting>
-		<Setting name="Pan Right" type="unicode">RIGHT</Setting>
-		<Setting name="Zoom In" type="unicode">KP_PLUS</Setting>
-		<Setting name="Zoom Out" type="unicode">KP_MINUS</Setting>
-		<Setting name="Turbo" type="unicode">LEFT_CONTROL</Setting>
-		<Setting name="Pause" type="unicode">PAUSE</Setting>
+    <Setting name="Rotate Clockwise" type="unicode">KP_MULTIPLY</Setting>
+    <Setting name="Rotate Counterclockwise" type="unicode">KP_DIVIDE</Setting>
+    <Setting name="Move NE" type="unicode">UP</Setting>
+    <Setting name="Move NW" type="unicode">LEFT</Setting>
+    <Setting name="Move SW" type="unicode">DOWN</Setting>
+    <Setting name="Move SE" type="unicode">RIGHT</Setting>
 	</Module>
 </Settings>

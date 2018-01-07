@@ -40,6 +40,7 @@ class MouseListener(fife.IMouseListener):
 
 	@LogExceptionDecorator
 	def mousePressed(self, event):
+		return
 		clickpoint = fife.ScreenPoint(event.getX(), event.getY())
 
 		if (event.getButton() == fife.MouseEvent.MIDDLE):
