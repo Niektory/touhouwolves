@@ -10,6 +10,7 @@ class Player(object):
 	def __init__(self, instance):
 		self.instance = instance
 		self.old_location = None
+		self.health = 4
 
 	@property
 	def coords(self):

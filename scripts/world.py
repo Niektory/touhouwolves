@@ -93,7 +93,6 @@ class World(object):
 		if self.animating:
 			return
 		self.moveEnemies()
-		self.moves_counter += 1
 		self.application.gui.combat_log.printMessage("Sakuya is resting...")
 
 	def stopTime(self):
@@ -106,7 +105,7 @@ class World(object):
 
 	def movePlayer(self, delta_coords):
 		if self.animating:
-			return False
+			return
 		new_coords = self.player.coords + delta_coords
 		cell = self.application.maplayer.getCellCache().getCell(new_coords)
 		if cell and cell.getCellType() <= 1:
@@ -114,13 +113,22 @@ class World(object):
 			#self.player.move(new_coords)
 			self.moveEnemies()
 			self.player.replayMove()
-			self.moves_counter += 1
-			return True
+			return
 		self.application.gui.combat_log.printMessage("Sakuya cannot move in that direction.")
 		facing_location = self.player.instance.getLocation()
 		facing_location.setLayerCoordinates(new_coords)
 		self.player.instance.setFacingLocation(facing_location)
-		return False
+		# can't move; but maybe we can attack?
+		for wolf in self.wolves:
+			if facing_location == wolf.instance.getLocation():
+				self.application.gui.combat_log.printMessage("Sakuya slashes wolf.")
+				wolf.health -= 1
+				if wolf.health <= 0:
+					self.wolves.remove(wolf)
+					facing_location.getLayer().deleteInstance(wolf.instance)
+					self.application.gui.combat_log.printMessage("Wolf was killed.")
+				self.moveEnemies()
+				return
 
 	def moveWolf(self, wolf, delta_coords):
 		new_coords = wolf.coords + delta_coords
@@ -156,6 +164,7 @@ class World(object):
 			wolf.moveInstant(route.getPath()[1])
 
 	def moveEnemies(self):
+		self.moves_counter += 1
 		if self.time_stop_counter:
 			self.time_stop_counter -= 1
 			return
