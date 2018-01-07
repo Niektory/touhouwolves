@@ -19,6 +19,10 @@ class GUIHUD:
 		self.hearts = []
 		for i in xrange(1,5):
 			self.hearts.append(self.lives.getChild("Heart"+str(i)))
+		self.bombs = self.window.getChild("Bombs")
+		self.stars = []
+		for i in xrange(1,4):
+			self.stars.append(self.bombs.getChild("Star"+str(i)))
 
 		self.visible = False
 
@@ -33,6 +37,16 @@ class GUIHUD:
 			else:
 				heart.setProperty("Image", "hp_3/full_image")
 			lives_left -= 2
+
+	def updateBombs(self, bombs_left):
+		for star in self.stars:
+			if bombs_left >= 2:
+				star.setProperty("Image", "hp_1/full_image")
+			elif bombs_left == 1:
+				star.setProperty("Image", "hp_2/full_image")
+			else:
+				star.setProperty("Image", "hp_3/full_image")
+			bombs_left -= 2
 
 	def updateTooltips(self):
 		pass

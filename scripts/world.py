@@ -56,8 +56,8 @@ class World(object):
 	@bombs.setter
 	def bombs(self, new_bombs):
 		self._bombs = min(new_bombs, 6)
-		#self.application.gui.hud.updateBombs(self._bombs)
-		self.application.gui.combat_log.printMessage("Bombs: " + str(self._bombs))
+		self.application.gui.hud.updateBombs(self._bombs)
+		#self.application.gui.combat_log.printMessage("Bombs: " + str(self._bombs))
 
 	@property
 	def moves_counter(self):
