@@ -33,6 +33,7 @@ class World(object):
 				self.wolves.append(Player(instance))
 		self.lives = 8
 		self.moves_counter = 0
+		self.time_stop_counter = 0
 
 	@property
 	def lives(self):
@@ -65,6 +66,15 @@ class World(object):
 				return True
 		return False
 
+	@property
+	def time_stop_counter(self):
+		return self._time_stop_counter
+
+	@time_stop_counter.setter
+	def time_stop_counter(self, new_time):
+		self._time_stop_counter = new_time
+		self.application.gui.combat_log.printMessage("Time stop: " + str(self._time_stop_counter))
+
 	def pump(self, frame_time):
 		pass
 
@@ -74,6 +84,9 @@ class World(object):
 		self.moveEnemies()
 		self.moves_counter += 1
 		self.application.gui.combat_log.printMessage("Sakuya is resting...")
+
+	def stopTime(self):
+		self.time_stop_counter += 2
 
 	def movePlayer(self, delta_coords):
 		if self.animating:
@@ -127,6 +140,9 @@ class World(object):
 			wolf.moveInstant(route.getPath()[1])
 
 	def moveEnemies(self):
+		if self.time_stop_counter:
+			self.time_stop_counter -= 1
+			return
 		for wolf in self.wolves:
 			if (wolf.instance.getLocation().getLayerDistanceTo(self.player.instance.getLocation())
 					<= 1):

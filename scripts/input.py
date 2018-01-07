@@ -147,6 +147,8 @@ class KeyListener(fife.IKeyListener):
 
 			elif key_val == self.getHotkey("Wait"):
 				self.application.world.wait()
+			elif key_val == self.getHotkey("Stop Time"):
+				self.application.world.stopTime()
 			elif key_val == self.getHotkey("Move NE"):
 				self.application.world.movePlayer(self.application.view.rotateCoords(
 						fife.ModelCoordinate(1,0,0)))

@@ -50,7 +50,7 @@ class GUIPreferences:
 			"Rotate Clockwise", "Rotate Counterclockwise", "Attach to PC",
 			"-- Game Control --", "Pause",
 			"-- Player Control --",
-			"Move NE", "Move NW", "Move SW", "Move SE", "Wait"]
+			"Move NE", "Move NW", "Move SW", "Move SE", "Wait", "Stop Time"]
 		vert_pos = 10
 		for action in self.hotkey_actions:
 			new_hotkey_label = PyCEGUI.WindowManager.getSingleton().createWindow(
